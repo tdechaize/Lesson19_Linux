@@ -1,0 +1,200 @@
+<html>
+<head>
+<title>lesson19 build log</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<tt>
+Build started on: <u>02-04-2023 at 18:40.58</u><br />
+Build ended on: <u>02-04-2023 at 18:41.00</u><p />
+<b>-------------- Build: GNUC 32b Debug in lesson19 (compiler: GNU GCC Compiler 32b)---------------</b><br />
+gcc -Wall -g -D_DEBUG -DDEBUG -m32 -I/usr/include -c /home/thierry/Sources/Opengl/Lesson19/src/lesson19.c -o objgcc32/Debug/src/lesson19.o<br />
+gcc -Wall -g -D_DEBUG -DDEBUG -m32 -I/usr/include -c /home/thierry/Sources/Opengl/Lesson19/src/logger.c -o objgcc32/Debug/src/logger.o<br />
+/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c: In function ‘ImageLoad’:<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:355:19: warning: pointer targets in assignment from ‘char *’ to ‘unsigned char *’ differ in signedness [-Wpointer-sign]</font><br />
+  355 |     texture-&gt;data = (char *) malloc(size);<br />
+      |                   ^<br />
+gcc -L/usr/lib/i386-linux-gnu -o bingcc32/Debug/lesson19.exe objgcc32/Debug/src/lesson19.o objgcc32/Debug/src/logger.o  -m32  -lGL -lglut -lGLU -lm -lXxf86vm -lXext -lX11<br />
+Output file is bingcc32/Debug/lesson19.exe with size 54,99 KB<br />
+<b>-------------- Build: GNUC 32b Release in lesson19 (compiler: GNU GCC Compiler 32b)---------------</b><br />
+gcc -Wall -m32 -DNDEBUG -m32 -I/usr/include -c /home/thierry/Sources/Opengl/Lesson19/src/lesson19.c -o objgcc32/Release/src/lesson19.o<br />
+gcc -Wall -m32 -DNDEBUG -m32 -I/usr/include -c /home/thierry/Sources/Opengl/Lesson19/src/logger.c -o objgcc32/Release/src/logger.o<br />
+/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c: In function ‘ImageLoad’:<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:355:19: warning: pointer targets in assignment from ‘char *’ to ‘unsigned char *’ differ in signedness [-Wpointer-sign]</font><br />
+  355 |     texture-&gt;data = (char *) malloc(size);<br />
+      |                   ^<br />
+gcc -L/usr/lib/i386-linux-gnu -o bingcc32/Release/lesson19.exe objgcc32/Release/src/lesson19.o objgcc32/Release/src/logger.o  -m32 -m32  -lGL -lglut -lGLU -lm -lXxf86vm -lXext -lX11<br />
+Output file is bingcc32/Release/lesson19.exe with size 26,15 KB<br />
+<b>-------------- Build: GNUC 64b Debug in lesson19 (compiler: GNU GCC Compiler)---------------</b><br />
+gcc -Wall -g -D_DEBUG -DDEBUG -m64 -I/usr/include -c /home/thierry/Sources/Opengl/Lesson19/src/lesson19.c -o objgcc64/Debug/src/lesson19.o<br />
+gcc -Wall -g -D_DEBUG -DDEBUG -m64 -I/usr/include -c /home/thierry/Sources/Opengl/Lesson19/src/logger.c -o objgcc64/Debug/src/logger.o<br />
+/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c: In function ‘ImageLoad’:<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:355:19: warning: pointer targets in assignment from ‘char *’ to ‘unsigned char *’ differ in signedness [-Wpointer-sign]</font><br />
+  355 |     texture-&gt;data = (char *) malloc(size);<br />
+      |                   ^<br />
+gcc -L/usr/lib/x86_64-linux-gnu -o bingcc64/Debug/lesson19.exe objgcc64/Debug/src/lesson19.o objgcc64/Debug/src/logger.o  -m64  -lGL -lglut -lGLU -lm -lXxf86vm -lXext -lX11<br />
+Output file is bingcc64/Debug/lesson19.exe with size 61,42 KB<br />
+<b>-------------- Build: GNUC 64b Release in lesson19 (compiler: GNU GCC Compiler)---------------</b><br />
+gcc -Wall -O2 -DNDEBUG -m64 -I/usr/include -c /home/thierry/Sources/Opengl/Lesson19/src/lesson19.c -o objgcc64/Release/src/lesson19.o<br />
+gcc -Wall -O2 -DNDEBUG -m64 -I/usr/include -c /home/thierry/Sources/Opengl/Lesson19/src/logger.c -o objgcc64/Release/src/logger.o<br />
+/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c: In function ‘ImageLoad’:<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:355:19: warning: pointer targets in assignment from ‘char *’ to ‘unsigned char *’ differ in signedness [-Wpointer-sign]</font><br />
+  355 |     texture-&gt;data = (char *) malloc(size);<br />
+      |                   ^<br />
+gcc -L/usr/lib/x86_64-linux-gnu -o bingcc64/Release/lesson19.exe objgcc64/Release/src/lesson19.o objgcc64/Release/src/logger.o  -s -m64  -lGL -lglut -lGLU -lm -lXxf86vm -lXext -lX11<br />
+Output file is bingcc64/Release/lesson19.exe with size 26,28 KB<br />
+<b>-------------- Build: CLANG 32b Debug in lesson19 (compiler: LLVM Clang Compiler 32b)---------------</b><br />
+clang -Wall -O0 -D_DEBUG -DDEBUG --target=i686-pc-linux-gnu -I/usr/lib/clang/14.0.6/include -c /home/thierry/Sources/Opengl/Lesson19/src/lesson19.c -o objclang32/Debug/src/lesson19.o<br />
+clang -Wall -O0 -D_DEBUG -DDEBUG --target=i686-pc-linux-gnu -I/usr/lib/clang/14.0.6/include -c /home/thierry/Sources/Opengl/Lesson19/src/logger.c -o objclang32/Debug/src/logger.o<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:355:19: warning: assigning to 'unsigned char *' from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]</font><br />
+    texture-&gt;data = (char *) malloc(size);<br />
+                  ^ ~~~~~~~~~~~~~~~~~~~~~<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:1440:22: warning: expression which evaluates to zero treated as a null pointer constant of type 'char *' [-Wnon-literal-null-conversion]</font><br />
+       level_debug = '\0';<br />
+                     ^~~~<br />
+2 warnings generated.<br />
+clang -L/usr/lib/clang/14.0.6/lib/linux -o binclang32/Debug/lesson19.exe objclang32/Debug/src/lesson19.o objclang32/Debug/src/logger.o  --target=i686-pc-linux-gnu  -lGL -lglut -lGLU -lm -lXxf86vm -lXext -lX11<br />
+Output file is binclang32/Debug/lesson19.exe with size 34,29 KB<br />
+<b>-------------- Build: CLANG 32b Release in lesson19 (compiler: LLVM Clang Compiler 32b)---------------</b><br />
+clang -Wall -O2 -DNDEBUG --target=i686-pc-linux-gnu -I/usr/lib/clang/14.0.6/include -c /home/thierry/Sources/Opengl/Lesson19/src/lesson19.c -o objclang32/Release/src/lesson19.o<br />
+clang -Wall -O2 -DNDEBUG --target=i686-pc-linux-gnu -I/usr/lib/clang/14.0.6/include -c /home/thierry/Sources/Opengl/Lesson19/src/logger.c -o objclang32/Release/src/logger.o<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:355:19: warning: assigning to 'unsigned char *' from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]</font><br />
+    texture-&gt;data = (char *) malloc(size);<br />
+                  ^ ~~~~~~~~~~~~~~~~~~~~~<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:1440:22: warning: expression which evaluates to zero treated as a null pointer constant of type 'char *' [-Wnon-literal-null-conversion]</font><br />
+       level_debug = '\0';<br />
+                     ^~~~<br />
+2 warnings generated.<br />
+clang -L/usr/lib/clang/14.0.6/lib/linux -o binclang32/Release/lesson19.exe objclang32/Release/src/lesson19.o objclang32/Release/src/logger.o  -s --target=i686-pc-linux-gnu  -lGL -lglut -lGLU -lm -lXxf86vm -lXext -lX11<br />
+Output file is binclang32/Release/lesson19.exe with size 25,84 KB<br />
+<b>-------------- Build: CLANG 64b Debug in lesson19 (compiler: LLVM Clang Compiler)---------------</b><br />
+clang -Wall -O0 -D_DEBUG -DDEBUG --target=x86_64-pc-linux-gnu -I/usr/lib/clang/14.0.6/include -c /home/thierry/Sources/Opengl/Lesson19/src/lesson19.c -o objclang64/Debug/src/lesson19.o<br />
+clang -Wall -O0 -D_DEBUG -DDEBUG --target=x86_64-pc-linux-gnu -I/usr/lib/clang/14.0.6/include -c /home/thierry/Sources/Opengl/Lesson19/src/logger.c -o objclang64/Debug/src/logger.o<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:355:19: warning: assigning to 'unsigned char *' from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]</font><br />
+    texture-&gt;data = (char *) malloc(size);<br />
+                  ^ ~~~~~~~~~~~~~~~~~~~~~<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:1440:22: warning: expression which evaluates to zero treated as a null pointer constant of type 'char *' [-Wnon-literal-null-conversion]</font><br />
+       level_debug = '\0';<br />
+                     ^~~~<br />
+2 warnings generated.<br />
+clang -L/usr/lib/clang/14.0.6/lib/linux -o binclang64/Debug/lesson19.exe objclang64/Debug/src/lesson19.o objclang64/Debug/src/logger.o  --target=x86_64-pc-linux-gnu  -lGL -lglut -lGLU -lm -lXxf86vm -lXext -lX11<br />
+Output file is binclang64/Debug/lesson19.exe with size 36,49 KB<br />
+<b>-------------- Build: CLANG 64b Release in lesson19 (compiler: LLVM Clang Compiler)---------------</b><br />
+clang -Wall -O2 -DNDEBUG --target=x86_64-pc-linux-gnu -I/usr/lib/clang/14.0.6/include -c /home/thierry/Sources/Opengl/Lesson19/src/lesson19.c -o objclang64/Release/src/lesson19.o<br />
+clang -Wall -O2 -DNDEBUG --target=x86_64-pc-linux-gnu -I/usr/lib/clang/14.0.6/include -c /home/thierry/Sources/Opengl/Lesson19/src/logger.c -o objclang64/Release/src/logger.o<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:355:19: warning: assigning to 'unsigned char *' from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]</font><br />
+    texture-&gt;data = (char *) malloc(size);<br />
+                  ^ ~~~~~~~~~~~~~~~~~~~~~<br />
+<font color="#0000ff">/home/thierry/Sources/Opengl/Lesson19/src/lesson19.c:1440:22: warning: expression which evaluates to zero treated as a null pointer constant of type 'char *' [-Wnon-literal-null-conversion]</font><br />
+       level_debug = '\0';<br />
+                     ^~~~<br />
+2 warnings generated.<br />
+clang -L/usr/lib/clang/14.0.6/lib/linux -o binclang64/Release/lesson19.exe objclang64/Release/src/lesson19.o objclang64/Release/src/logger.o  -s --target=x86_64-pc-linux-gnu  -lGL -lglut -lGLU -lm -lXxf86vm -lXext -lX11<br />
+Output file is binclang64/Release/lesson19.exe with size 26,91 KB<br />
+<b>-------------- Build: Archive in lesson19 (compiler: GNU GCC Compiler)---------------</b><br />
+rm --interactive=never *.7z || true<br />
+rm --interactive=never *.tar || true<br />
+rm: impossible de supprimer '*.tar': Aucun fichier ou dossier de ce type<br />
+python3 /home/thierry/Sources/tools/Size_exec.py lesson19<br />
+        Tableau récapitulatif de la taille des exécutables générés pour le projet : lesson19<br />
+  Debug GCC 32b     :  55.0 KB et sa date dernière modification Sun Apr  2 18:40:58 2023 -&gt; ./bingcc32/Debug/lesson19.exe.<br />
+  Release GCC 32b   :  26.1 KB et sa date dernière modification Sun Apr  2 18:40:58 2023 -&gt; ./bingcc32/Release/lesson19.exe.<br />
+  Debug GCC 64b     :  61.4 KB et sa date dernière modification Sun Apr  2 18:40:58 2023 -&gt; ./bingcc64/Debug/lesson19.exe.<br />
+  Release GCC 64b   :  26.3 KB et sa date dernière modification Sun Apr  2 18:40:58 2023 -&gt; ./bingcc64/Release/lesson19.exe.<br />
+  Debug CLANG 32b   :  34.3 KB et sa date dernière modification Sun Apr  2 18:40:59 2023 -&gt; ./binclang32/Debug/lesson19.exe.<br />
+  Release CLANG 32b :  25.8 KB et sa date dernière modification Sun Apr  2 18:40:59 2023 -&gt; ./binclang32/Release/lesson19.exe.<br />
+  Debug CLANG 64b   :  36.5 KB et sa date dernière modification Sun Apr  2 18:40:59 2023 -&gt; ./binclang64/Debug/lesson19.exe.<br />
+  Release CLANG 64b :  26.9 KB et sa date dernière modification Sun Apr  2 18:40:59 2023 -&gt; ./binclang64/Release/lesson19.exe.<br />
+python3 /home/thierry/Sources/tools/Calc_checksums.py lesson19<br />
+Tableau récapitulatif des différents checksums générés pour le projet : lesson19<br />
+Calcul des cheksums du fichier : ./bingcc32/Debug/lesson19.exe.<br />
+Checksum CRC32  is ba7c1b96.<br />
+Checksum MD5 is b839dd188d8c1645df2f1bd69bdce18b.<br />
+Checksum SHA256 is ded067dd8b1230ca926a0b8de86227c58a54b414692a0918de99b26671aef0c6.<br />
+Checksum SHA512 is 2687a9de9c378a70d204f01fa9e0073a9a0f613960fdd031a6ad7fc9eda5415fa00002335b262db717682caad36b166ca786af8427ccb6159616168eb19b6bd6.<br />
+Checksum RipeMD160 is b22a7d564de05b370e68ea320bdae42ad6c6308d.<br />
+Checksum BLAKE2B is 77d39960653ca78a7c3f3046fc78f095710dcdbce0cb048ff05ee617cceda37c8fe17c92e3e90933224b371a206447a3c84b1ac752c67c4c24413f90cb4c64e9.<br />
+Calcul des cheksums du fichier : ./bingcc32/Release/lesson19.exe.<br />
+Checksum CRC32  is a59f8d66.<br />
+Checksum MD5 is 0c98b48018a86776c807ac6518c683cd.<br />
+Checksum SHA256 is c9e155125bc90e1eb11e4b173f5e9d8a542d67a5df6ccd63bbc85f2c3140d336.<br />
+Checksum SHA512 is c274945523f2c045a189a7271179329a340209cf20a652773f29b112009e85fc5024fdfb841605f7a77e89c01a48954cf679812621fd81a7c549362ce09b7c40.<br />
+Checksum RipeMD160 is ee19b2c95467a3c48d4999b6f186e5f43f54abe0.<br />
+Checksum BLAKE2B is ca1638aa01c782005e8237a4d535ba18b7fd2313fad9b94d3d31893114b39279b076d381ee7875c8ce161ce01dcc4d94ad387f9449e0242e91a388443c52b5c5.<br />
+Calcul des cheksums du fichier : ./bingcc64/Debug/lesson19.exe.<br />
+Checksum CRC32  is 8cd28bba.<br />
+Checksum MD5 is 5fe27dcfc9a27557d0f01e16bc33164e.<br />
+Checksum SHA256 is d61f34f0ec3438f48bb79e0644b2dfe10d4437d07cccaf7ef008d4740fd53222.<br />
+Checksum SHA512 is 6fb736dac6734340208835dd52a4755b47afd72c4c84c369047e72bc03e950ccc4a1d83336c6a3a332cc178ddfe82f8bc3d3429a9f51702411e009ae619485b7.<br />
+Checksum RipeMD160 is 571ead9847418ff1242f610fd66b7663bac64417.<br />
+Checksum BLAKE2B is 6302379939f7507fd7a6192dfb5e1a6f61bac1cb5381b69187d6c0ffdcf4f9aaf4d97e07cd38fc244beb76605a84f6ea0e9349adc0b65c566540a7ea62740064.<br />
+Calcul des cheksums du fichier : ./bingcc64/Release/lesson19.exe.<br />
+Checksum CRC32  is f9170280.<br />
+Checksum MD5 is 572513a5cfd4eacb77841fcac333d112.<br />
+Checksum SHA256 is 78d962afcc2c553b078f0d952eec488b8783565988fef99fe0dcc5385345fb7a.<br />
+Checksum SHA512 is b3dc334246b80c1dab88d59377eff3690f97fde9588bcee4f1831b44c2c25ff1912151c6c0be12fb2c19e02981d6777bc1115b06d5278425a68a0953552d28db.<br />
+Checksum RipeMD160 is 5aa16676487b366222a4dc5a2ac0de48d38a8ade.<br />
+Checksum BLAKE2B is 2e3ed2fffd2eb5ed9b52f6e7d651fdcf226026251974f6c6b70932867df4758360eba5554590e4fc16a3df8dc1d70a6b8c91d66b0cd30ce04638c62bfb19c97d.<br />
+Calcul des cheksums du fichier : ./binclang32/Debug/lesson19.exe.<br />
+Checksum CRC32  is fff9a03b.<br />
+Checksum MD5 is 76cad807a4930a2b3635131553112489.<br />
+Checksum SHA256 is 1f503f8370fc7bc8fcc7ccd0c0158fb09eae64ddaf91c399e9ea68c960620fba.<br />
+Checksum SHA512 is f413a1c9d97d8d5d4b12f922bafdc2786a9ddcabde7cce4525199f69d2cd8872a51864dbb9f4324263a925a821ef37c40e01ef4061f082feb367a5cd2a5e7115.<br />
+Checksum RipeMD160 is 5035fb7730b4a5ff91609c5d87d3833881c8d931.<br />
+Checksum BLAKE2B is be01f79f49b39bbc4021098760b26f0ebbdf20558f4fe196717d60eec1e781512d98a26ad8fc9cc906b3f093144dc90763b80857b58e22ba62aa57d774609812.<br />
+Calcul des cheksums du fichier : ./binclang32/Release/lesson19.exe.<br />
+Checksum CRC32  is 858a4898.<br />
+Checksum MD5 is 0f1237e5249c7b3b80f650e2513dde12.<br />
+Checksum SHA256 is ba399796ff5a67e565548feb33156b60bce21970c87f805be0c7bfaad62c4c8d.<br />
+Checksum SHA512 is 04b9bc29d227e0894ea5ee7c2118f5d4d9f101d58541c87beb66d80d65349a2a4b89759be8bd2c07022b4efb0e577a1ae42541f24027b13534d98669e4922422.<br />
+Checksum RipeMD160 is 7a33e4cbe91c6d93d2afa916233df1e7df81b32f.<br />
+Checksum BLAKE2B is 869ed1318979e06f05b2927def1da18d98c280d27960a509c62b4f4c11fc2d83d0dbe8f4df7107ce50e9646976741e6edd46f4ea9b146a2baef35330926b19bc.<br />
+Calcul des cheksums du fichier : ./binclang64/Debug/lesson19.exe.<br />
+Checksum CRC32  is effdd53c.<br />
+Checksum MD5 is af0550ca99b0901d1805649440556450.<br />
+Checksum SHA256 is e4b852b9609da0a66ec29a224a3e6182e6e6039b91750c94c182a5cad0629100.<br />
+Checksum SHA512 is 4bf4af90f618e7dbefd326b38fecb9eedc955d9ab9640606582daa51b9505cdbefc7ec3af9dc1337d2d3c5860c818f300d01bfe4c5a13fcb50da16d096cced63.<br />
+Checksum RipeMD160 is 9e7983df5a5f5f953d922d8dce6d9b00c5f0dbe4.<br />
+Checksum BLAKE2B is 5c025fcd5217293290cc33d5c913d8ad7bcc1e857f861c95aaae23d5ea3a2a4d0668d5d2c30de9255bd22abbbffd9b45456c8bf2ec2e92c0f3283aaf6f6b4fd6.<br />
+Calcul des cheksums du fichier : ./binclang64/Release/lesson19.exe.<br />
+Checksum CRC32  is 5cde17de.<br />
+Checksum MD5 is d6185a46b6ab209d1e11ceec2ecc8970.<br />
+Checksum SHA256 is 42d139b3a29b7c3eb1cfc86f5d02e345a2aedca6e08d3a97b73bd100a171cd37.<br />
+Checksum SHA512 is 4a72ee36620c48392cacddcb5f269a164b469cfb34146614a21334d9975eaac008099c569a278971cda56434155b011a1a4d5fa991dec9d4d5571e7a24aed916.<br />
+Checksum RipeMD160 is c6acde79382c4ea894044b8865eb5fabcf8568b4.<br />
+Checksum BLAKE2B is 94f70c4ba23becae27246d79632a07b15d99f56abed4e7daa92e045c234f9d4d559a297d29baf4260dca77cb84e8626a046638b54588e1420f83a04cd3174c4d.<br />
+7z a lesson19_""date +"%d-%m-%Y"""_src.7z src/* res/* data/* build.cmake/* build.shell/* *.bat *.txt *.html *.md doxygen/* doc/* *.cbp *.workspace '-x!*.bak' -mhe=on -p"lesson19_tde@03!"<br />
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21<br />
+p7zip Version 16.02 (locale=fr_FR.UTF-8,Utf16=on,HugeFiles=on,64 bits,8 CPUs Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz (A0652),ASM,AES-NI)<br />
+Scanning the drive:<br />
+86 folders, 733 files, 3901542 bytes (3811 KiB)<br />
+Creating archive: lesson19_02-04-2023_src.7z<br />
+Items to compress: 819<br />
+Files read from disk: 733<br />
+Archive size: 790201 bytes (772 KiB)<br />
+Everything is Ok<br />
+7z a -ttar lesson19_""date +"%d-%m-%Y"""_all.tar * '-x!*.bak'  '-x!*.7z'<br />
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21<br />
+p7zip Version 16.02 (locale=fr_FR.UTF-8,Utf16=on,HugeFiles=on,64 bits,8 CPUs Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz (A0652),ASM,AES-NI)<br />
+Scanning the drive:<br />
+126 folders, 831 files, 5094669 bytes (4976 KiB)<br />
+Creating archive: lesson19_02-04-2023_all.tar<br />
+Items to compress: 957<br />
+Files read from disk: 957<br />
+Archive size: 5829632 bytes (5693 KiB)<br />
+Everything is Ok<br />
+7z a lesson19_""date +"%d-%m-%Y"""_all.7z *_all.tar -mhe=on -p"lesson19_tde@03!"<br />
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21<br />
+p7zip Version 16.02 (locale=fr_FR.UTF-8,Utf16=on,HugeFiles=on,64 bits,8 CPUs Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz (A0652),ASM,AES-NI)<br />
+Scanning the drive:<br />
+1 file, 5829632 bytes (5693 KiB)<br />
+Creating archive: lesson19_02-04-2023_all.7z<br />
+Items to compress: 1<br />
+Files read from disk: 1<br />
+Archive size: 904474 bytes (884 KiB)<br />
+Everything is Ok<br />
+rm --interactive=never *.tar || true<br />
+<font color="#0000ff">Process terminated with status 0 (0 minute(s), 2 second(s))</font><br />
+<font color="#0000ff">0 error(s), 12 warning(s) (0 minute(s), 2 second(s))</font><br />
+</tt>
+</body>
+</html>
