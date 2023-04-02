@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structparticles" xml:lang="en-US">
+<title>particles Struct Reference</title>
+<indexterm><primary>particles</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>Bool <link linkend="_structparticles_1a28ce002c8e7f2088530890815c2d3efb">active</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1aade9d15e82b3eec6fd956757cc584167">life</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1afd01be1678a14eb64d654f854d7be89f">fade</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1aebb822bae77fd77fea2f8d01ae133789">red</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1aacb4b75038c14bd3c3f2e9d41d739a42">green</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1abfad1d2de069cd123930d051d87dfd62">blue</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1a2fa83bdc95cdcbf8d10ea1fe75b61d41">xPos</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1acbe909fd720185322be4836941454a6d">yPos</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1af68cb64bcb3291a3f6045bbdb759f208">zPos</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1a6265ef2e7ee1773b5e4461ca5859962d">xSpeed</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1aaea98d86ac0322989a692886e09becfa">ySpeed</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1afa838b44b32602f7021443b2113d94ad">zSpeed</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1a09f46597be40df988620303e4678075f">xGrav</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1a1bb32784f965dddee148ecf6625beea6">yGrav</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_structparticles_1a908bae9e82c07e3539509ae4d0d4e988">zGrav</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structparticles_1a28ce002c8e7f2088530890815c2d3efb"/>    <section>
+    <title>active</title>
+<indexterm><primary>active</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>active</secondary></indexterm>
+<para><computeroutput>Bool particles::active</computeroutput></para>    </section><anchor xml:id="_structparticles_1abfad1d2de069cd123930d051d87dfd62"/>    <section>
+    <title>blue</title>
+<indexterm><primary>blue</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>blue</secondary></indexterm>
+<para><computeroutput>float particles::blue</computeroutput></para>    </section><anchor xml:id="_structparticles_1afd01be1678a14eb64d654f854d7be89f"/>    <section>
+    <title>fade</title>
+<indexterm><primary>fade</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>fade</secondary></indexterm>
+<para><computeroutput>float particles::fade</computeroutput></para>    </section><anchor xml:id="_structparticles_1aacb4b75038c14bd3c3f2e9d41d739a42"/>    <section>
+    <title>green</title>
+<indexterm><primary>green</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>green</secondary></indexterm>
+<para><computeroutput>float particles::green</computeroutput></para>    </section><anchor xml:id="_structparticles_1aade9d15e82b3eec6fd956757cc584167"/>    <section>
+    <title>life</title>
+<indexterm><primary>life</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>life</secondary></indexterm>
+<para><computeroutput>float particles::life</computeroutput></para>    </section><anchor xml:id="_structparticles_1aebb822bae77fd77fea2f8d01ae133789"/>    <section>
+    <title>red</title>
+<indexterm><primary>red</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>red</secondary></indexterm>
+<para><computeroutput>float particles::red</computeroutput></para>    </section><anchor xml:id="_structparticles_1a09f46597be40df988620303e4678075f"/>    <section>
+    <title>xGrav</title>
+<indexterm><primary>xGrav</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>xGrav</secondary></indexterm>
+<para><computeroutput>float particles::xGrav</computeroutput></para>    </section><anchor xml:id="_structparticles_1a2fa83bdc95cdcbf8d10ea1fe75b61d41"/>    <section>
+    <title>xPos</title>
+<indexterm><primary>xPos</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>xPos</secondary></indexterm>
+<para><computeroutput>float particles::xPos</computeroutput></para>    </section><anchor xml:id="_structparticles_1a6265ef2e7ee1773b5e4461ca5859962d"/>    <section>
+    <title>xSpeed</title>
+<indexterm><primary>xSpeed</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>xSpeed</secondary></indexterm>
+<para><computeroutput>float particles::xSpeed</computeroutput></para>    </section><anchor xml:id="_structparticles_1a1bb32784f965dddee148ecf6625beea6"/>    <section>
+    <title>yGrav</title>
+<indexterm><primary>yGrav</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>yGrav</secondary></indexterm>
+<para><computeroutput>float particles::yGrav</computeroutput></para>    </section><anchor xml:id="_structparticles_1acbe909fd720185322be4836941454a6d"/>    <section>
+    <title>yPos</title>
+<indexterm><primary>yPos</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>yPos</secondary></indexterm>
+<para><computeroutput>float particles::yPos</computeroutput></para>    </section><anchor xml:id="_structparticles_1aaea98d86ac0322989a692886e09becfa"/>    <section>
+    <title>ySpeed</title>
+<indexterm><primary>ySpeed</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>ySpeed</secondary></indexterm>
+<para><computeroutput>float particles::ySpeed</computeroutput></para>    </section><anchor xml:id="_structparticles_1a908bae9e82c07e3539509ae4d0d4e988"/>    <section>
+    <title>zGrav</title>
+<indexterm><primary>zGrav</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>zGrav</secondary></indexterm>
+<para><computeroutput>float particles::zGrav</computeroutput></para>    </section><anchor xml:id="_structparticles_1af68cb64bcb3291a3f6045bbdb759f208"/>    <section>
+    <title>zPos</title>
+<indexterm><primary>zPos</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>zPos</secondary></indexterm>
+<para><computeroutput>float particles::zPos</computeroutput></para>    </section><anchor xml:id="_structparticles_1afa838b44b32602f7021443b2113d94ad"/>    <section>
+    <title>zSpeed</title>
+<indexterm><primary>zSpeed</primary><secondary>particles</secondary></indexterm>
+<indexterm><primary>particles</primary><secondary>zSpeed</secondary></indexterm>
+<para><computeroutput>float particles::zSpeed</computeroutput></para></section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+<link linkend="_lesson19_8c">lesson19.c</link></section>
+</section>

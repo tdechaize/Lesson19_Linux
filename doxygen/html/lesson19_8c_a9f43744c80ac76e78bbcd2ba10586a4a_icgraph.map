@@ -1,0 +1,5 @@
+<map id="killGLWindow" name="killGLWindow">
+<area shape="rect" id="node1" title="Fonction KillGLWindow : fonction détruisant proprement la fenêtre OpenGL." alt="" coords="232,31,333,57"/>
+<area shape="rect" id="node2" href="$lesson19_8c.html#a3e25f2943eab7c75e72f87e42d5edbba" title="Fonction keyAction : fonction déclenchant les actions attendues lors de l&#39;appui sur certaines touches..." alt="" coords="104,5,184,32"/>
+<area shape="rect" id="node3" href="$lesson19_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Programme Main obligatoire pour les programmes sous Linux (OpenGL en mode console)." alt="" coords="5,31,56,57"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="log_print" name="log_print">
+<area shape="rect" id="node1" title=" " alt="" coords="437,183,508,209"/>
+<area shape="rect" id="node2" href="$lesson19_8c.html#ab84c0d0ddf60c836fa79e5ded5c57da8" title="Fonction DrawGLScene : fonction generant l&#39;affichage attendu avec des instructions OpenGL." alt="" coords="278,5,382,32"/>
+<area shape="rect" id="node3" href="$lesson19_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Programme Main obligatoire pour les programmes sous Linux (OpenGL en mode console)." alt="" coords="141,56,191,83"/>
+<area shape="rect" id="node4" href="$lesson19_8c.html#a7b663452b29fa6d5c1004c71f0bef449" title=" " alt="" coords="281,107,379,133"/>
+<area shape="rect" id="node5" href="$lesson19_8c.html#a1cb9dc6d04cc9d941fc01c25f273a563" title="Fonction ImageLoad : fonction chargeant une image stockée dans un fichier BMP." alt="" coords="287,208,373,235"/>
+<area shape="rect" id="node6" href="$lesson19_8c.html#a578c61649e0358ee7a128f5c2fbe6339" title="Fonction LoadGLTextures : fonction chargeant la texture à appliquer à un objet avec des instructions ..." alt="" coords="109,259,223,285"/>
+<area shape="rect" id="node7" href="$lesson19_8c.html#a57804629b2499b5eab933a78a57869ca" title="Fonction InitGL : fonction gerant les caractéristiques de base de la scéne lorsque avec des instructi..." alt="" coords="5,284,61,311"/>
+<area shape="rect" id="node8" href="$lesson19_8c.html#afa77afca37a4fa454dbd026f5423e9c5" title="Fonction ReSizeGLScene : fonction gerant les nouvelles dimensions de la scéne lorsque l&#39;utilisateur a..." alt="" coords="275,157,385,184"/>
+<area shape="rect" id="node9" href="$lesson19_8c.html#a890ee4e485ae9ab6768f6bac7b9f679e" title=" " alt="" coords="271,360,389,387"/>
+</map>

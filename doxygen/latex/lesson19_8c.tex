@@ -1,0 +1,600 @@
+\doxysection{lesson19.\+c File Reference}
+\label{lesson19_8c}\index{lesson19.c@{lesson19.c}}
+
+
+Ouvre une simple fenêtre X11 on Linux et dessine un système de génération de particules à partir d\textquotesingle{}un modèle d\textquotesingle{}étoile issu d\textquotesingle{}un fichier BITMAP.  
+
+
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$GL/glx.\+h$>$}\newline
+{\ttfamily \#include $<$GL/gl.\+h$>$}\newline
+{\ttfamily \#include $<$GL/glu.\+h$>$}\newline
+{\ttfamily \#include $<$X11/\+Xlib.\+h$>$}\newline
+{\ttfamily \#include $<$X11/extensions/xf86vmode.\+h$>$}\newline
+{\ttfamily \#include $<$X11/\+Xatom.\+h$>$}\newline
+{\ttfamily \#include $<$X11/keysym.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}logger.\+h\char`\"{}}\newline
+Include dependency graph for lesson19.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lesson19_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ GLWindow}
+\item 
+struct \textbf{ texture\+Image}
+\item 
+struct \textbf{ particles}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ \+\_\+\+XOPEN\+\_\+\+SOURCE}~600
+\item 
+\#define \textbf{ MAX\+\_\+\+PARTICLES}~1000      /$\ast$ number of \textbf{ particles} to create $\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ go\+\_\+fullscreen} (Display $\ast$dsp, Window \textbf{ win})
+\item 
+void \textbf{ return\+\_\+fullscreen} (Display $\ast$dsp, Window \textbf{ win})
+\item 
+int \textbf{ Image\+Load} (char $\ast$filename, \textbf{ texture\+Image} $\ast$\textbf{ texture})
+\begin{DoxyCompactList}\small\item\em Fonction Image\+Load \+: fonction chargeant une image stockée dans un fichier BMP. \end{DoxyCompactList}\item 
+Bool \textbf{ load\+GLTextures} ()
+\begin{DoxyCompactList}\small\item\em Fonction Load\+GLTextures \+: fonction chargeant la texture à appliquer à un objet avec des instructions Open\+GL. \end{DoxyCompactList}\item 
+void \textbf{ resize\+GLScene} (unsigned int width, unsigned int height)
+\begin{DoxyCompactList}\small\item\em Fonction Re\+Size\+GLScene \+: fonction gerant les nouvelles dimensions de la scéne lorsque l\textquotesingle{}utilisateur agit sur un redimensionnement de la fenêtre. \end{DoxyCompactList}\item 
+int \textbf{ init\+GL} (GLvoid)
+\begin{DoxyCompactList}\small\item\em Fonction Init\+GL \+: fonction gerant les caractéristiques de base de la scéne lorsque avec des instructions Open\+GL (arrière plan, profondeur, type de profondeur, ...) \end{DoxyCompactList}\item 
+int \textbf{ draw\+GLScene} (GLvoid)
+\begin{DoxyCompactList}\small\item\em Fonction Draw\+GLScene \+: fonction generant l\textquotesingle{}affichage attendu avec des instructions Open\+GL. \end{DoxyCompactList}\item 
+GLvoid \textbf{ kill\+GLWindow} (GLvoid)
+\begin{DoxyCompactList}\small\item\em Fonction Kill\+GLWindow \+: fonction détruisant proprement la fenêtre Open\+GL. \end{DoxyCompactList}\item 
+Bool \textbf{ create\+GLWindow} (char $\ast$title, int width, int height, int bits, Bool fullscreenflag)
+\begin{DoxyCompactList}\small\item\em Fonction create\+GLWindow \+: fonction créant une nouvelle fenêtre Open\+GL sous X11, avec des instruction GLX. \end{DoxyCompactList}\item 
+void \textbf{ init\+Keys} ()
+\begin{DoxyCompactList}\small\item\em Fonction Init\+Keys \+: fonction construisant le tableau des \char`\"{}keycodes\char`\"{} utilisés par ce programme. \end{DoxyCompactList}\item 
+void \textbf{ key\+Action} ()
+\begin{DoxyCompactList}\small\item\em Fonction key\+Action \+: fonction déclenchant les actions attendues lors de l\textquotesingle{}appui sur certaines touches du clavier. \end{DoxyCompactList}\item 
+int \textbf{ main} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Programme Main obligatoire pour les programmes sous Linux (Open\+GL en mode console). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \textbf{ level\+\_\+debug}
+\item 
+Atom \textbf{ wm\+Delete\+Window}
+\item 
+Display $\ast$ \textbf{ dp\+Display}
+\item 
+Window \textbf{ win}
+\item 
+XWindow\+Attributes \textbf{ window\+\_\+attr}
+\item 
+int \textbf{ n\+Full\+Screen} =0
+\item 
+\textbf{ GLWindow} \textbf{ GLWin}
+\item 
+Bool \textbf{ done}
+\item 
+Bool \textbf{ keys} [256]
+\item 
+int \textbf{ key\+Codes} [17]
+\item 
+Bool \textbf{ rainbow}
+\item 
+float \textbf{ slowdown} = 2.\+0f
+\item 
+float \textbf{ x\+Speed}
+\item 
+float \textbf{ y\+Speed}
+\item 
+float \textbf{ zoom} = -\/40.\+0f
+\item 
+GLuint \textbf{ loop}
+\item 
+GLuint \textbf{ color}
+\item 
+GLuint \textbf{ delay}
+\item 
+GLuint \textbf{ texture} [1]
+\item 
+\textbf{ particles} \textbf{ particle} [\textbf{ MAX\+\_\+\+PARTICLES}]
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ouvre une simple fenêtre X11 on Linux et dessine un système de génération de particules à partir d\textquotesingle{}un modèle d\textquotesingle{}étoile issu d\textquotesingle{}un fichier BITMAP. 
+
+Comments manageable by Doxygen
+
+Modified smoothly by Thierry DECHAIZE
+
+Paradigm \+: obtain one source (only one !) compatible for multiple free C Compilers and provide for all users an development environment on Linux (64 bits compatible), the great Code\+::\+Blocks manager (version 20.\+03), and don\textquotesingle{}t use glaux.\+lib or glaux.\+dll.
+
+a) gcc 11.\+3.\+0 (32 and 64 bits) version officielle \+: commande pour l\textquotesingle{}installation sur Linux Mint -\/$>$ sudo apt-\/get install freeglut3 libglew-\/dev gcc g++ mesa-\/common-\/dev build-\/essential libglew2.\+2 libglm-\/dev binutils libc6 libc6-\/dev gcc-\/multilib g++-\/multilib; option -\/m32 to 32 bits ; no option to 64 bits b) CLANG version 14.\+0.\+6 (32 et 64 bits), adossé aux environnements gcc \+: commande pour l\textquotesingle{}installation sur Linux Mint -\/$>$ sudo apt-\/get install llvm clang ; options pour la compilation et l\textquotesingle{}édition de liens -\/$>$ --target=i686-\/pc-\/linux-\/gnu (32 bits) --target=x86\+\_\+64-\/pc-\/linux-\/gnu (64 bits)
+
+Date \+: 2023/04/02
+
+\begin{DoxyAuthor}{Author}
+Jeff Molofee ( Ne\+He ) originely, ported to Linux/\+GLX by Mihael Vrbanec, and after modified smotthly by Thierry Dechaize on Linux Mint 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2 avril 2023
+\end{DoxyDate}
+Ce programme gére plusieurs événements \+: le clic sur le bouton \char`\"{}\+Fermé\char`\"{} de la fenêtre, la sortie du programme par la touche ESCAPE ou par les touches \char`\"{}q\char`\"{} ou \char`\"{}\+Q\char`\"{} [Quit]
+
+les touches \char`\"{}b\char`\"{} ou \char`\"{}\+B\char`\"{} qui active ou non le \char`\"{}blending\char`\"{}, les touches \char`\"{}i\char`\"{} ou \char`\"{}\+I\char`\"{} qui active ou non le \char`\"{}\+Filter\char`\"{},
+
+les touches \char`\"{}l\char`\"{} ou \char`\"{}\+L\char`\"{} qui active ou non le \char`\"{}ligthing\char`\"{}, les touches \char`\"{}f\char`\"{} ou \char`\"{}\+F\char`\"{} qui active ou non le \char`\"{}\+Full Screen\char`\"{}.
+
+les touches spéciales UP, DOWN, LEFT, RIGTH qui agissent sur les rotations respectivement selon l\textquotesingle{}orientation choisie
+
+les touches PG-\/\+UP / PG-\/\+DOWN qui agissent sur la profondeur choisie et enfin la touche \char`\"{}\+Espace\char`\"{} qui permet de choisir la forme à afficher.
+
+Point d\textquotesingle{}attention \+: il faut lancer l\textquotesingle{}exécutable à partir des sous répertoires bin...../\+Release ou bin...../\+Debug car le chargement des données est indiqué sous une forme relative \+: ../../\+Data/... \begin{DoxyVerb}  FIXME :  2023/01/28 -> Le passage en Fullscreen sur une configuration à deux écrans physiques donne un résultat inattendu : deux fenêtres d'affichage GL Windows se "dupliquent" avec le même contenu,
+                         et plus grave, la résolution de la deuxième fenêtre (sur le deuxième écran) est très faible, ce qui provoque un recouvrement de la deuxième fenêtre sur les deux écrans physiques !!!
+                         Et encore plus gênant, le "grab" s'applique sur cette deuxième fenêtre, donc les actions de la souris comme du clavier restent restreints à cette fenêtre et ne permettent
+                         plus l'accès par exemple aux icônes et aux menus importants sous Linux Mint. Seul un appui sur le bouton d'extinction de mon PC portable permet d'arrêter le système proprement.
+                         Juste pour comprendre la configuration de mon PC portable sous Linux Mint 22.1, j'ai un écran principal (celui du portable) à gauche (écran primaire) et j'ai un deuxième écran
+                         secondaire à droite (HDMI). Et sous Linux Mint, le paramètrage de l'affichage étendu ne permet pas la duplication de la barre de "tâches" sur les deux écrans comme avec Windows 11.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{lesson19_8c_a78c99ffd76a7bb3c8c74db76207e9ab4}} 
+\index{lesson19.c@{lesson19.c}!\_XOPEN\_SOURCE@{\_XOPEN\_SOURCE}}
+\index{\_XOPEN\_SOURCE@{\_XOPEN\_SOURCE}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{\_XOPEN\_SOURCE}
+{\footnotesize\ttfamily \#define \+\_\+\+XOPEN\+\_\+\+SOURCE~600}
+
+\mbox{\label{lesson19_8c_a43b318e80d2457f5ce3e00a6cf1543c8}} 
+\index{lesson19.c@{lesson19.c}!MAX\_PARTICLES@{MAX\_PARTICLES}}
+\index{MAX\_PARTICLES@{MAX\_PARTICLES}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{MAX\_PARTICLES}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+PARTICLES~1000      /$\ast$ number of \textbf{ particles} to create $\ast$/}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{lesson19_8c_ac13b55ae5d796578ae81f8d4c7d3d96c}} 
+\index{lesson19.c@{lesson19.c}!createGLWindow@{createGLWindow}}
+\index{createGLWindow@{createGLWindow}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{createGLWindow()}
+{\footnotesize\ttfamily Bool create\+GLWindow (\begin{DoxyParamCaption}\item[{char $\ast$}]{title,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{bits,  }\item[{Bool}]{fullscreenflag }\end{DoxyParamCaption})}
+
+
+
+Fonction create\+GLWindow \+: fonction créant une nouvelle fenêtre Open\+GL sous X11, avec des instruction GLX. 
+
+This function create the GL Window with instructions GLX
+
+En entrée cinq paramètres pour la création de la fénbêtre \+: son titre, sa largeur, sa hauteur, le nombre de bits pour la gestion de la couleur, et un flag Fullscreen ou non. 
+\begin{DoxyParams}{Parameters}
+{\em title} & le titre ou le nom de la fenêtre \\
+\hline
+{\em width} & la largeur de la fenêtre \\
+\hline
+{\em height} & la hauteur de la fenêtre \\
+\hline
+{\em bits} & le nombre de bits pour la gestion de la couleur (1, 2 3 ou 4 bits) \\
+\hline
+{\em fullscreenflag} & Fullscreen ou non \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bool un boolean correspondant au statut de d\textquotesingle{}appel de cette fonction. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{lesson19_8c_ac13b55ae5d796578ae81f8d4c7d3d96c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8c_ab84c0d0ddf60c836fa79e5ded5c57da8}} 
+\index{lesson19.c@{lesson19.c}!drawGLScene@{drawGLScene}}
+\index{drawGLScene@{drawGLScene}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{drawGLScene()}
+{\footnotesize\ttfamily int draw\+GLScene (\begin{DoxyParamCaption}\item[{GLvoid}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction Draw\+GLScene \+: fonction generant l\textquotesingle{}affichage attendu avec des instructions Open\+GL. 
+
+This function generate the scene with instructions Open\+GL
+
+Aucun paramètre dans ce cas de figure car tout est géré directement à l\textquotesingle{}intérieur de cette fonction d\textquotesingle{}affichage. \begin{DoxyReturn}{Returns}
+int un entier \char`\"{}booléen\char`\"{} False/\+True. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{lesson19_8c_ab84c0d0ddf60c836fa79e5ded5c57da8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{lesson19_8c_ab84c0d0ddf60c836fa79e5ded5c57da8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8c_a7b663452b29fa6d5c1004c71f0bef449}} 
+\index{lesson19.c@{lesson19.c}!go\_fullscreen@{go\_fullscreen}}
+\index{go\_fullscreen@{go\_fullscreen}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{go\_fullscreen()}
+{\footnotesize\ttfamily void go\+\_\+fullscreen (\begin{DoxyParamCaption}\item[{Display $\ast$}]{dsp,  }\item[{Window}]{win }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{lesson19_8c_a7b663452b29fa6d5c1004c71f0bef449_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8c_a1cb9dc6d04cc9d941fc01c25f273a563}} 
+\index{lesson19.c@{lesson19.c}!ImageLoad@{ImageLoad}}
+\index{ImageLoad@{ImageLoad}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{ImageLoad()}
+{\footnotesize\ttfamily int Image\+Load (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{\textbf{ texture\+Image} $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+Fonction Image\+Load \+: fonction chargeant une image stockée dans un fichier BMP. 
+
+This function load image stored in file BMP (quick and dirty bitmap loader !! bug on SOLARIS/\+SPARC, two functions added below correct this code)
+
+En entrée, le nom du fichier stockant l\textquotesingle{}image, en retour l\textquotesingle{}image chargée en mémoire. 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$filename} & Le nom du fichier stockant l\textquotesingle{}image \\
+\hline
+{\em $\ast$texture} & l\textquotesingle{}image chargée en mémoire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int un entier de type booléen (0 / 1). 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{lesson19_8c_a1cb9dc6d04cc9d941fc01c25f273a563_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{lesson19_8c_a1cb9dc6d04cc9d941fc01c25f273a563_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8c_a57804629b2499b5eab933a78a57869ca}} 
+\index{lesson19.c@{lesson19.c}!initGL@{initGL}}
+\index{initGL@{initGL}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{initGL()}
+{\footnotesize\ttfamily int init\+GL (\begin{DoxyParamCaption}\item[{GLvoid}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction Init\+GL \+: fonction gerant les caractéristiques de base de la scéne lorsque avec des instructions Open\+GL (arrière plan, profondeur, type de profondeur, ...) 
+
+This function initialize the basics characteristics of the scene with instructions Open\+GL (background, depth, type of depth, reset of the projection matrix, ...)
+
+Juste un statut en retour, aucun paramètre en entrée (GLVoid). \begin{DoxyReturn}{Returns}
+int statut du retour. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lesson19_8c_a57804629b2499b5eab933a78a57869ca_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8c_a499bb37858fbf522f2e60bf45789bca4}} 
+\index{lesson19.c@{lesson19.c}!initKeys@{initKeys}}
+\index{initKeys@{initKeys}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{initKeys()}
+{\footnotesize\ttfamily void init\+Keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction Init\+Keys \+: fonction construisant le tableau des \char`\"{}keycodes\char`\"{} utilisés par ce programme. 
+
+This function build keycodes map of keys used +by this program
+
+Aucun paramètre dans ce cas de figure car tout est géré directement à l\textquotesingle{}intérieur de cette fonction. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{lesson19_8c_a499bb37858fbf522f2e60bf45789bca4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8c_a3e25f2943eab7c75e72f87e42d5edbba}} 
+\index{lesson19.c@{lesson19.c}!keyAction@{keyAction}}
+\index{keyAction@{keyAction}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{keyAction()}
+{\footnotesize\ttfamily void key\+Action (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction key\+Action \+: fonction déclenchant les actions attendues lors de l\textquotesingle{}appui sur certaines touches du clavier. 
+
+This function run actions when key pressed
+
+Aucun paramètre dans ce cas de figure car tout est géré directement à l\textquotesingle{}intérieur de cette fonction. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{lesson19_8c_a3e25f2943eab7c75e72f87e42d5edbba_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{lesson19_8c_a3e25f2943eab7c75e72f87e42d5edbba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8c_a9f43744c80ac76e78bbcd2ba10586a4a}} 
+\index{lesson19.c@{lesson19.c}!killGLWindow@{killGLWindow}}
+\index{killGLWindow@{killGLWindow}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{killGLWindow()}
+{\footnotesize\ttfamily GLvoid kill\+GLWindow (\begin{DoxyParamCaption}\item[{GLvoid}]{ }\end{DoxyParamCaption})}
+
+
+
+Fonction Kill\+GLWindow \+: fonction détruisant proprement la fenêtre Open\+GL. 
+
+This function kill the GL window properly
+
+Aucun paramètre dans ce cas de figure car tout est géré directement à l\textquotesingle{}intérieur de cette fonction. \begin{DoxyReturn}{Returns}
+GLvoid aucun retour. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{lesson19_8c_a9f43744c80ac76e78bbcd2ba10586a4a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8c_a578c61649e0358ee7a128f5c2fbe6339}} 
+\index{lesson19.c@{lesson19.c}!loadGLTextures@{loadGLTextures}}
+\index{loadGLTextures@{loadGLTextures}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{loadGLTextures()}
+{\footnotesize\ttfamily Bool load\+GLTextures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction Load\+GLTextures \+: fonction chargeant la texture à appliquer à un objet avec des instructions Open\+GL. 
+
+This function load textures used for object with instructions Open\+GL
+
+Aucun paramètre en entrée, et justeb un statut d\textquotesingle{}appel en retour (Bool). \begin{DoxyReturn}{Returns}
+Bool un booléen donnant le statut OK/\+NOK du chargement des textures. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lesson19_8c_a578c61649e0358ee7a128f5c2fbe6339_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{lesson19_8c_a578c61649e0358ee7a128f5c2fbe6339_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8c_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{lesson19.c@{lesson19.c}!main@{main}}
+\index{main@{main}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Programme Main obligatoire pour les programmes sous Linux (Open\+GL en mode console). 
+
+Comments manageable by Doxygen
+
+Programme principal de lancement de l\textquotesingle{}application qui appelle ensuite toutes les fonctions utiles Open\+GL et surtout glut. 
+\begin{DoxyParams}{Parameters}
+{\em argc} & le nombre de paramètres de la ligne de commande. \\
+\hline
+{\em argv} & un pointeur sur le tableau des différents paramètres de la ligne de commande. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int un entier permettant de connaître la statut du lancement du programme. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lesson19_8c_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8c_afa77afca37a4fa454dbd026f5423e9c5}} 
+\index{lesson19.c@{lesson19.c}!resizeGLScene@{resizeGLScene}}
+\index{resizeGLScene@{resizeGLScene}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{resizeGLScene()}
+{\footnotesize\ttfamily void resize\+GLScene (\begin{DoxyParamCaption}\item[{unsigned int}]{width,  }\item[{unsigned int}]{height }\end{DoxyParamCaption})}
+
+
+
+Fonction Re\+Size\+GLScene \+: fonction gerant les nouvelles dimensions de la scéne lorsque l\textquotesingle{}utilisateur agit sur un redimensionnement de la fenêtre. 
+
+This function manage the new dimension of the scene when resize of windows with instructions Open\+GL
+
+En retour les deux paramètres des nouvelles valeurs de largeur et de hauteur de la fenêtre redimensionnée. 
+\begin{DoxyParams}{Parameters}
+{\em width} & la nouvelle largeur de la fenêtre redimensionnée $\ast$ \\
+\hline
+{\em height} & la nouvelle hauteur de la fenêtre redimensionnée $\ast$ \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{lesson19_8c_afa77afca37a4fa454dbd026f5423e9c5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{lesson19_8c_afa77afca37a4fa454dbd026f5423e9c5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8c_a890ee4e485ae9ab6768f6bac7b9f679e}} 
+\index{lesson19.c@{lesson19.c}!return\_fullscreen@{return\_fullscreen}}
+\index{return\_fullscreen@{return\_fullscreen}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{return\_fullscreen()}
+{\footnotesize\ttfamily void return\+\_\+fullscreen (\begin{DoxyParamCaption}\item[{Display $\ast$}]{dsp,  }\item[{Window}]{win }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{lesson19_8c_a890ee4e485ae9ab6768f6bac7b9f679e_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\label{lesson19_8c_a6d572d653bb9805417195280642d1fce}} 
+\index{lesson19.c@{lesson19.c}!color@{color}}
+\index{color@{color}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{color}
+{\footnotesize\ttfamily GLuint color}
+
+\mbox{\label{lesson19_8c_a2f03d04e41f030b04ac000d7895c2b5d}} 
+\index{lesson19.c@{lesson19.c}!delay@{delay}}
+\index{delay@{delay}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{delay}
+{\footnotesize\ttfamily GLuint delay}
+
+\mbox{\label{lesson19_8c_a07e347514629b6adb74bcb969e80a33c}} 
+\index{lesson19.c@{lesson19.c}!done@{done}}
+\index{done@{done}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{done}
+{\footnotesize\ttfamily Bool done}
+
+\mbox{\label{lesson19_8c_acf76dbe22a22b26de13c8091b9c391aa}} 
+\index{lesson19.c@{lesson19.c}!dpDisplay@{dpDisplay}}
+\index{dpDisplay@{dpDisplay}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{dpDisplay}
+{\footnotesize\ttfamily Display$\ast$ dp\+Display}
+
+\mbox{\label{lesson19_8c_ade900ced69fc46dc5f724c63013548c5}} 
+\index{lesson19.c@{lesson19.c}!GLWin@{GLWin}}
+\index{GLWin@{GLWin}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{GLWin}
+{\footnotesize\ttfamily \textbf{ GLWindow} GLWin}
+
+\mbox{\label{lesson19_8c_a75362430f4deb6fab710f7771b236afb}} 
+\index{lesson19.c@{lesson19.c}!keyCodes@{keyCodes}}
+\index{keyCodes@{keyCodes}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{keyCodes}
+{\footnotesize\ttfamily int key\+Codes[17]}
+
+\mbox{\label{lesson19_8c_a26c3e2b2066db6e72d86722ac0186ec4}} 
+\index{lesson19.c@{lesson19.c}!keys@{keys}}
+\index{keys@{keys}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{keys}
+{\footnotesize\ttfamily Bool keys[256]}
+
+\mbox{\label{lesson19_8c_ae9fb3d4767f6255c70dcd5123bbf2f54}} 
+\index{lesson19.c@{lesson19.c}!level\_debug@{level\_debug}}
+\index{level\_debug@{level\_debug}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{level\_debug}
+{\footnotesize\ttfamily char$\ast$ level\+\_\+debug}
+
+\mbox{\label{lesson19_8c_a8166a6eff3ba7dbe6db9caa81bdd4444}} 
+\index{lesson19.c@{lesson19.c}!loop@{loop}}
+\index{loop@{loop}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{loop}
+{\footnotesize\ttfamily GLuint loop}
+
+\mbox{\label{lesson19_8c_af7a035f1a720fb7a4a279410f376800b}} 
+\index{lesson19.c@{lesson19.c}!nFullScreen@{nFullScreen}}
+\index{nFullScreen@{nFullScreen}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{nFullScreen}
+{\footnotesize\ttfamily int n\+Full\+Screen =0}
+
+\mbox{\label{lesson19_8c_adc93326d41bb9a47e4e1603899b8b809}} 
+\index{lesson19.c@{lesson19.c}!particle@{particle}}
+\index{particle@{particle}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{particle}
+{\footnotesize\ttfamily \textbf{ particles} particle[\textbf{ MAX\+\_\+\+PARTICLES}]}
+
+\mbox{\label{lesson19_8c_a41a85f9338b6b98dec4194be47ea66b2}} 
+\index{lesson19.c@{lesson19.c}!rainbow@{rainbow}}
+\index{rainbow@{rainbow}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{rainbow}
+{\footnotesize\ttfamily Bool rainbow}
+
+\mbox{\label{lesson19_8c_a7da4fb6c8bdd66bc2fe6e22bb4f5de44}} 
+\index{lesson19.c@{lesson19.c}!slowdown@{slowdown}}
+\index{slowdown@{slowdown}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{slowdown}
+{\footnotesize\ttfamily float slowdown = 2.\+0f}
+
+\mbox{\label{lesson19_8c_a8dbc8c0cec45367c7d19c7dfa3768fae}} 
+\index{lesson19.c@{lesson19.c}!texture@{texture}}
+\index{texture@{texture}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{texture}
+{\footnotesize\ttfamily GLuint texture[1]}
+
+\mbox{\label{lesson19_8c_af5e9cbaf11bc8c0c330917f546d0045f}} 
+\index{lesson19.c@{lesson19.c}!win@{win}}
+\index{win@{win}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{win}
+{\footnotesize\ttfamily Window win}
+
+\mbox{\label{lesson19_8c_acd2d0100ab2abfb408f39b158feafe44}} 
+\index{lesson19.c@{lesson19.c}!window\_attr@{window\_attr}}
+\index{window\_attr@{window\_attr}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{window\_attr}
+{\footnotesize\ttfamily XWindow\+Attributes window\+\_\+attr}
+
+\mbox{\label{lesson19_8c_af97736f62ec5200b7103729676d95123}} 
+\index{lesson19.c@{lesson19.c}!wmDeleteWindow@{wmDeleteWindow}}
+\index{wmDeleteWindow@{wmDeleteWindow}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{wmDeleteWindow}
+{\footnotesize\ttfamily Atom wm\+Delete\+Window}
+
+\mbox{\label{lesson19_8c_a451d88560b61eedd5b1e8d3f001173f0}} 
+\index{lesson19.c@{lesson19.c}!xSpeed@{xSpeed}}
+\index{xSpeed@{xSpeed}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{xSpeed}
+{\footnotesize\ttfamily float x\+Speed}
+
+\mbox{\label{lesson19_8c_add0f459c61dc28778cbe25c8b3795f50}} 
+\index{lesson19.c@{lesson19.c}!ySpeed@{ySpeed}}
+\index{ySpeed@{ySpeed}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{ySpeed}
+{\footnotesize\ttfamily float y\+Speed}
+
+\mbox{\label{lesson19_8c_a15776f201dc8b554110222e67a51cbae}} 
+\index{lesson19.c@{lesson19.c}!zoom@{zoom}}
+\index{zoom@{zoom}!lesson19.c@{lesson19.c}}
+\doxysubsubsection{zoom}
+{\footnotesize\ttfamily float zoom = -\/40.\+0f}
+

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_g_l_window" xml:lang="en-US">
+<title>GLWindow Struct Reference</title>
+<indexterm><primary>GLWindow</primary></indexterm>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>Display * <link linkend="_struct_g_l_window_1a169ae6f8293572ce9f106a25768499c6">dpy</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_g_l_window_1a1ca9a9a2453202ff04a59f72b75da0a8">screen</link></para>
+</listitem>
+            <listitem><para>Window <link linkend="_struct_g_l_window_1ac3dd35c06b6c6da0248f8df6eb2d6e34">win</link></para>
+</listitem>
+            <listitem><para>GLXContext <link linkend="_struct_g_l_window_1a9929fdc2eab12c62a3c3d5a815cfea28">ctx</link></para>
+</listitem>
+            <listitem><para>XSetWindowAttributes <link linkend="_struct_g_l_window_1a9c4c5b73deb89884ff4a9b42d6d64008">attr</link></para>
+</listitem>
+            <listitem><para>Bool <link linkend="_struct_g_l_window_1a58fa83e9e722dfc9d637c5e2b37a33a9">fs</link></para>
+</listitem>
+            <listitem><para>XF86VidModeModeInfo <link linkend="_struct_g_l_window_1ab0e7d78d39fa5241662c6c40e6acc0ba">deskMode</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_g_l_window_1a954b88e865b273824c37d054bd8cc3b2">x</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_struct_g_l_window_1a938829a749bf0355e422a21f263cb5b7">y</link></para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_struct_g_l_window_1a4b0063f835ee4d47fbe9ba7e59c6bb67">width</link></para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_struct_g_l_window_1aee6adb454eb4cd36cc1ea95cc13367e0">height</link></para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_struct_g_l_window_1a4d734d381ccf1187293d41cd261ad0c0">depth</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_g_l_window_1a9c4c5b73deb89884ff4a9b42d6d64008"/>    <section>
+    <title>attr</title>
+<indexterm><primary>attr</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>attr</secondary></indexterm>
+<para><computeroutput>XSetWindowAttributes GLWindow::attr</computeroutput></para>    </section><anchor xml:id="_struct_g_l_window_1a9929fdc2eab12c62a3c3d5a815cfea28"/>    <section>
+    <title>ctx</title>
+<indexterm><primary>ctx</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>ctx</secondary></indexterm>
+<para><computeroutput>GLXContext GLWindow::ctx</computeroutput></para>    </section><anchor xml:id="_struct_g_l_window_1a4d734d381ccf1187293d41cd261ad0c0"/>    <section>
+    <title>depth</title>
+<indexterm><primary>depth</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>depth</secondary></indexterm>
+<para><computeroutput>unsigned int GLWindow::depth</computeroutput></para>    </section><anchor xml:id="_struct_g_l_window_1ab0e7d78d39fa5241662c6c40e6acc0ba"/>    <section>
+    <title>deskMode</title>
+<indexterm><primary>deskMode</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>deskMode</secondary></indexterm>
+<para><computeroutput>XF86VidModeModeInfo GLWindow::deskMode</computeroutput></para>    </section><anchor xml:id="_struct_g_l_window_1a169ae6f8293572ce9f106a25768499c6"/>    <section>
+    <title>dpy</title>
+<indexterm><primary>dpy</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>dpy</secondary></indexterm>
+<para><computeroutput>Display* GLWindow::dpy</computeroutput></para>    </section><anchor xml:id="_struct_g_l_window_1a58fa83e9e722dfc9d637c5e2b37a33a9"/>    <section>
+    <title>fs</title>
+<indexterm><primary>fs</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>fs</secondary></indexterm>
+<para><computeroutput>Bool GLWindow::fs</computeroutput></para>    </section><anchor xml:id="_struct_g_l_window_1aee6adb454eb4cd36cc1ea95cc13367e0"/>    <section>
+    <title>height</title>
+<indexterm><primary>height</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>height</secondary></indexterm>
+<para><computeroutput>unsigned int GLWindow::height</computeroutput></para>    </section><anchor xml:id="_struct_g_l_window_1a1ca9a9a2453202ff04a59f72b75da0a8"/>    <section>
+    <title>screen</title>
+<indexterm><primary>screen</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>screen</secondary></indexterm>
+<para><computeroutput>int GLWindow::screen</computeroutput></para>    </section><anchor xml:id="_struct_g_l_window_1a4b0063f835ee4d47fbe9ba7e59c6bb67"/>    <section>
+    <title>width</title>
+<indexterm><primary>width</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>width</secondary></indexterm>
+<para><computeroutput>unsigned int GLWindow::width</computeroutput></para>    </section><anchor xml:id="_struct_g_l_window_1ac3dd35c06b6c6da0248f8df6eb2d6e34"/>    <section>
+    <title>win</title>
+<indexterm><primary>win</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>win</secondary></indexterm>
+<para><computeroutput>Window GLWindow::win</computeroutput></para>    </section><anchor xml:id="_struct_g_l_window_1a954b88e865b273824c37d054bd8cc3b2"/>    <section>
+    <title>x</title>
+<indexterm><primary>x</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>x</secondary></indexterm>
+<para><computeroutput>int GLWindow::x</computeroutput></para>    </section><anchor xml:id="_struct_g_l_window_1a938829a749bf0355e422a21f263cb5b7"/>    <section>
+    <title>y</title>
+<indexterm><primary>y</primary><secondary>GLWindow</secondary></indexterm>
+<indexterm><primary>GLWindow</primary><secondary>y</secondary></indexterm>
+<para><computeroutput>int GLWindow::y</computeroutput></para></section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+<link linkend="_lesson19_8c">lesson19.c</link></section>
+</section>

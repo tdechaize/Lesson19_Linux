@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>Lesson19</title>
+    </info>
+<chapter>
+    <title>Class Documentation</title>
+    <xi:include href="struct_g_l_window.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structparticles.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structtexture_image.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>File Documentation</title>
+    <xi:include href="lesson19_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="logger_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="logger_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

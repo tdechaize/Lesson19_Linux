@@ -1,0 +1,27 @@
+var lesson19_8cc =
+[
+    [ "particles", "structparticles.html", "structparticles" ],
+    [ "MAX_PARTICLES", "lesson19_8cc.html#a43b318e80d2457f5ce3e00a6cf1543c8", null ],
+    [ "check_keys", "lesson19_8cc.html#a5724d64b5c3a8c56e926b1ea1d18551c", null ],
+    [ "DrawGLScene", "lesson19_8cc.html#a52061247bdaeb770e3a1d59eefaad972", null ],
+    [ "HandleSDL", "lesson19_8cc.html#a33fc23298a970af0c2294a319b994271", null ],
+    [ "InitGL", "lesson19_8cc.html#aa4c387d3f1ebce6d57684b6a10c9b0ae", null ],
+    [ "LoadGLTextures", "lesson19_8cc.html#a8dd15539ba90ae3670aa0a9f889d2236", null ],
+    [ "main", "lesson19_8cc.html#a3c04138a5bfe5d72780bb7e82a18e627", null ],
+    [ "ReSizeGLScene", "lesson19_8cc.html#a87bb84d489df61ed7b0c002584fd984f", null ],
+    [ "active", "lesson19_8cc.html#a03c996f9fcf0e10baeb3e700be0c409a", null ],
+    [ "col", "lesson19_8cc.html#a469edc375aaa7c6a095681085cdf49e9", null ],
+    [ "delay", "lesson19_8cc.html#a2f03d04e41f030b04ac000d7895c2b5d", null ],
+    [ "fullscreen", "lesson19_8cc.html#a5a9147cb82d1cbeefadd62beb9e6910b", null ],
+    [ "keys", "lesson19_8cc.html#a565dd67e065c3457c34cf097c69c2d75", null ],
+    [ "loop", "lesson19_8cc.html#a8166a6eff3ba7dbe6db9caa81bdd4444", null ],
+    [ "particle", "lesson19_8cc.html#adc93326d41bb9a47e4e1603899b8b809", null ],
+    [ "rainbow", "lesson19_8cc.html#adbd21006311db75a9e2bc9bc2065b51c", null ],
+    [ "rp", "lesson19_8cc.html#a4ff11ab1085419e1180614366b635963", null ],
+    [ "slowdown", "lesson19_8cc.html#a7da4fb6c8bdd66bc2fe6e22bb4f5de44", null ],
+    [ "sp", "lesson19_8cc.html#aaf677ed18854e8ae795959076bc5dda0", null ],
+    [ "texture", "lesson19_8cc.html#a8dbc8c0cec45367c7d19c7dfa3768fae", null ],
+    [ "xspeed", "lesson19_8cc.html#a7ac436f4ab4a187efa772c347c97085b", null ],
+    [ "yspeed", "lesson19_8cc.html#aae9a3d5ef891624a6deba53f08a48fa9", null ],
+    [ "zoom", "lesson19_8cc.html#a15776f201dc8b554110222e67a51cbae", null ]
+];

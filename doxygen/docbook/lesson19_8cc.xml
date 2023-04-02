@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_lesson19_8cc" xml:lang="en-US">
+<title>lesson19.cc File Reference</title>
+<indexterm><primary>lesson19.cc</primary></indexterm>
+<programlisting>#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;GL/gl.h&gt;
+#include &lt;GL/glu.h&gt;
+#include &quot;SDL.h&quot;
+</programlisting>Include dependency graph for lesson19.cc:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8cc__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structparticles">particles</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_lesson19_8cc_1a43b318e80d2457f5ce3e00a6cf1543c8">MAX_PARTICLES</link>   1000</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_lesson19_8cc_1a33fc23298a970af0c2294a319b994271">HandleSDL</link> (SDL_Event *event)</para>
+</listitem>
+            <listitem><para>int <link linkend="_lesson19_8cc_1a8dd15539ba90ae3670aa0a9f889d2236">LoadGLTextures</link> ()</para>
+</listitem>
+            <listitem><para>GLvoid <link linkend="_lesson19_8cc_1a87bb84d489df61ed7b0c002584fd984f">ReSizeGLScene</link> (GLsizei width, GLsizei height)</para>
+</listitem>
+            <listitem><para>int <link linkend="_lesson19_8cc_1aa4c387d3f1ebce6d57684b6a10c9b0ae">InitGL</link> (GLvoid)</para>
+</listitem>
+            <listitem><para>int <link linkend="_lesson19_8cc_1a52061247bdaeb770e3a1d59eefaad972">DrawGLScene</link> (GLvoid)</para>
+</listitem>
+            <listitem><para>void <link linkend="_lesson19_8cc_1a5724d64b5c3a8c56e926b1ea1d18551c">check_keys</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_lesson19_8cc_1a3c04138a5bfe5d72780bb7e82a18e627">main</link> (int argc, char **argv)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_lesson19_8cc_1a565dd67e065c3457c34cf097c69c2d75">keys</link> [512]</para>
+</listitem>
+            <listitem><para>bool <link linkend="_lesson19_8cc_1a03c996f9fcf0e10baeb3e700be0c409a">active</link> =true</para>
+</listitem>
+            <listitem><para>bool <link linkend="_lesson19_8cc_1a5a9147cb82d1cbeefadd62beb9e6910b">fullscreen</link> =true</para>
+</listitem>
+            <listitem><para>bool <link linkend="_lesson19_8cc_1adbd21006311db75a9e2bc9bc2065b51c">rainbow</link> =true</para>
+</listitem>
+            <listitem><para>bool <link linkend="_lesson19_8cc_1aaf677ed18854e8ae795959076bc5dda0">sp</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_lesson19_8cc_1a4ff11ab1085419e1180614366b635963">rp</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_lesson19_8cc_1a7da4fb6c8bdd66bc2fe6e22bb4f5de44">slowdown</link> =2.0f</para>
+</listitem>
+            <listitem><para>float <link linkend="_lesson19_8cc_1a7ac436f4ab4a187efa772c347c97085b">xspeed</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_lesson19_8cc_1aae9a3d5ef891624a6deba53f08a48fa9">yspeed</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_lesson19_8cc_1a15776f201dc8b554110222e67a51cbae">zoom</link> =-40.0f</para>
+</listitem>
+            <listitem><para>GLuint <link linkend="_lesson19_8cc_1a8166a6eff3ba7dbe6db9caa81bdd4444">loop</link></para>
+</listitem>
+            <listitem><para>GLuint <link linkend="_lesson19_8cc_1a469edc375aaa7c6a095681085cdf49e9">col</link></para>
+</listitem>
+            <listitem><para>GLuint <link linkend="_lesson19_8cc_1a2f03d04e41f030b04ac000d7895c2b5d">delay</link></para>
+</listitem>
+            <listitem><para>GLuint <link linkend="_lesson19_8cc_1a8dbc8c0cec45367c7d19c7dfa3768fae">texture</link> [1]</para>
+</listitem>
+            <listitem><para><link linkend="_structparticles">particles</link> <link linkend="_lesson19_8cc_1adc93326d41bb9a47e4e1603899b8b809">particle</link> [<link linkend="_lesson19_8cc_1a43b318e80d2457f5ce3e00a6cf1543c8">MAX_PARTICLES</link>]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_lesson19_8cc_1a43b318e80d2457f5ce3e00a6cf1543c8"/>    <section>
+    <title>MAX_PARTICLES</title>
+<indexterm><primary>MAX_PARTICLES</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>MAX_PARTICLES</secondary></indexterm>
+<para><computeroutput>#define MAX_PARTICLES   1000</computeroutput></para></section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_lesson19_8cc_1a5724d64b5c3a8c56e926b1ea1d18551c"/>    <section>
+    <title>check_keys()</title>
+<indexterm><primary>check_keys</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>check_keys</secondary></indexterm>
+<para><computeroutput>void check_keys ( )</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8cc_a5724d64b5c3a8c56e926b1ea1d18551c_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8cc_1a52061247bdaeb770e3a1d59eefaad972"/>    <section>
+    <title>DrawGLScene()</title>
+<indexterm><primary>DrawGLScene</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>DrawGLScene</secondary></indexterm>
+<para><computeroutput>int DrawGLScene (GLvoid )</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8cc_a52061247bdaeb770e3a1d59eefaad972_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8cc_1a33fc23298a970af0c2294a319b994271"/>    <section>
+    <title>HandleSDL()</title>
+<indexterm><primary>HandleSDL</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>HandleSDL</secondary></indexterm>
+<para><computeroutput>int HandleSDL (SDL_Event * event)</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8cc_a33fc23298a970af0c2294a319b994271_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8cc_1aa4c387d3f1ebce6d57684b6a10c9b0ae"/>    <section>
+    <title>InitGL()</title>
+<indexterm><primary>InitGL</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>InitGL</secondary></indexterm>
+<para><computeroutput>int InitGL (GLvoid )</computeroutput></para>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8cc_aa4c387d3f1ebce6d57684b6a10c9b0ae_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8cc_aa4c387d3f1ebce6d57684b6a10c9b0ae_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8cc_1a8dd15539ba90ae3670aa0a9f889d2236"/>    <section>
+    <title>LoadGLTextures()</title>
+<indexterm><primary>LoadGLTextures</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>LoadGLTextures</secondary></indexterm>
+<para><computeroutput>int LoadGLTextures ( )</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8cc_a8dd15539ba90ae3670aa0a9f889d2236_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8cc_1a3c04138a5bfe5d72780bb7e82a18e627"/>    <section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>int main (int argc, char ** argv)</computeroutput></para>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8cc_a3c04138a5bfe5d72780bb7e82a18e627_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8cc_1a87bb84d489df61ed7b0c002584fd984f"/>    <section>
+    <title>ReSizeGLScene()</title>
+<indexterm><primary>ReSizeGLScene</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>ReSizeGLScene</secondary></indexterm>
+<para><computeroutput>GLvoid ReSizeGLScene (GLsizei width, GLsizei height)</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8cc_a87bb84d489df61ed7b0c002584fd984f_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_lesson19_8cc_1a03c996f9fcf0e10baeb3e700be0c409a"/>    <section>
+    <title>active</title>
+<indexterm><primary>active</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>active</secondary></indexterm>
+<para><computeroutput>bool active =true</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1a469edc375aaa7c6a095681085cdf49e9"/>    <section>
+    <title>col</title>
+<indexterm><primary>col</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>col</secondary></indexterm>
+<para><computeroutput>GLuint col</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1a2f03d04e41f030b04ac000d7895c2b5d"/>    <section>
+    <title>delay</title>
+<indexterm><primary>delay</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>delay</secondary></indexterm>
+<para><computeroutput>GLuint delay</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1a5a9147cb82d1cbeefadd62beb9e6910b"/>    <section>
+    <title>fullscreen</title>
+<indexterm><primary>fullscreen</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>fullscreen</secondary></indexterm>
+<para><computeroutput>bool fullscreen =true</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1a565dd67e065c3457c34cf097c69c2d75"/>    <section>
+    <title>keys</title>
+<indexterm><primary>keys</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>keys</secondary></indexterm>
+<para><computeroutput>bool keys[512]</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1a8166a6eff3ba7dbe6db9caa81bdd4444"/>    <section>
+    <title>loop</title>
+<indexterm><primary>loop</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>loop</secondary></indexterm>
+<para><computeroutput>GLuint loop</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1adc93326d41bb9a47e4e1603899b8b809"/>    <section>
+    <title>particle</title>
+<indexterm><primary>particle</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>particle</secondary></indexterm>
+<para><computeroutput><link linkend="_structparticles">particles</link> particle[<link linkend="_lesson19_8cc_1a43b318e80d2457f5ce3e00a6cf1543c8">MAX_PARTICLES</link>]</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1adbd21006311db75a9e2bc9bc2065b51c"/>    <section>
+    <title>rainbow</title>
+<indexterm><primary>rainbow</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>rainbow</secondary></indexterm>
+<para><computeroutput>bool rainbow =true</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1a4ff11ab1085419e1180614366b635963"/>    <section>
+    <title>rp</title>
+<indexterm><primary>rp</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>rp</secondary></indexterm>
+<para><computeroutput>bool rp</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1a7da4fb6c8bdd66bc2fe6e22bb4f5de44"/>    <section>
+    <title>slowdown</title>
+<indexterm><primary>slowdown</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>slowdown</secondary></indexterm>
+<para><computeroutput>float slowdown =2.0f</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1aaf677ed18854e8ae795959076bc5dda0"/>    <section>
+    <title>sp</title>
+<indexterm><primary>sp</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>sp</secondary></indexterm>
+<para><computeroutput>bool sp</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1a8dbc8c0cec45367c7d19c7dfa3768fae"/>    <section>
+    <title>texture</title>
+<indexterm><primary>texture</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>texture</secondary></indexterm>
+<para><computeroutput>GLuint texture[1]</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1a7ac436f4ab4a187efa772c347c97085b"/>    <section>
+    <title>xspeed</title>
+<indexterm><primary>xspeed</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>xspeed</secondary></indexterm>
+<para><computeroutput>float xspeed</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1aae9a3d5ef891624a6deba53f08a48fa9"/>    <section>
+    <title>yspeed</title>
+<indexterm><primary>yspeed</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>yspeed</secondary></indexterm>
+<para><computeroutput>float yspeed</computeroutput></para>    </section><anchor xml:id="_lesson19_8cc_1a15776f201dc8b554110222e67a51cbae"/>    <section>
+    <title>zoom</title>
+<indexterm><primary>zoom</primary><secondary>lesson19.cc</secondary></indexterm>
+<indexterm><primary>lesson19.cc</primary><secondary>zoom</secondary></indexterm>
+<para><computeroutput>float zoom =-40.0f</computeroutput></para></section>
+</section>
+</section>

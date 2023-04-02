@@ -1,0 +1,4 @@
+<map id="loadGLTextures" name="loadGLTextures">
+<area shape="rect" id="node1" title="Fonction LoadGLTextures : fonction chargeant la texture à appliquer à un objet avec des instructions ..." alt="" coords="109,5,223,32"/>
+<area shape="rect" id="node2" href="$lesson19_8c.html#a57804629b2499b5eab933a78a57869ca" title="Fonction InitGL : fonction gerant les caractéristiques de base de la scéne lorsque avec des instructi..." alt="" coords="5,5,61,32"/>
+</map>

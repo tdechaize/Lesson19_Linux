@@ -1,0 +1,286 @@
+\doxysection{lesson19.\+cc File Reference}
+\label{lesson19_8cc}\index{lesson19.cc@{lesson19.cc}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$GL/gl.\+h$>$}\newline
+{\ttfamily \#include $<$GL/glu.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}SDL.\+h\char`\"{}}\newline
+Include dependency graph for lesson19.\+cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lesson19_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ particles}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ MAX\+\_\+\+PARTICLES}~1000
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ Handle\+SDL} (SDL\+\_\+\+Event $\ast$event)
+\item 
+int \textbf{ Load\+GLTextures} ()
+\item 
+GLvoid \textbf{ Re\+Size\+GLScene} (GLsizei width, GLsizei height)
+\item 
+int \textbf{ Init\+GL} (GLvoid)
+\item 
+int \textbf{ Draw\+GLScene} (GLvoid)
+\item 
+void \textbf{ check\+\_\+keys} ()
+\item 
+int \textbf{ main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ keys} [512]
+\item 
+bool \textbf{ active} =true
+\item 
+bool \textbf{ fullscreen} =true
+\item 
+bool \textbf{ rainbow} =true
+\item 
+bool \textbf{ sp}
+\item 
+bool \textbf{ rp}
+\item 
+float \textbf{ slowdown} =2.\+0f
+\item 
+float \textbf{ xspeed}
+\item 
+float \textbf{ yspeed}
+\item 
+float \textbf{ zoom} =-\/40.\+0f
+\item 
+GLuint \textbf{ loop}
+\item 
+GLuint \textbf{ col}
+\item 
+GLuint \textbf{ delay}
+\item 
+GLuint \textbf{ texture} [1]
+\item 
+\textbf{ particles} \textbf{ particle} [\textbf{ MAX\+\_\+\+PARTICLES}]
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{lesson19_8cc_a43b318e80d2457f5ce3e00a6cf1543c8}} 
+\index{lesson19.cc@{lesson19.cc}!MAX\_PARTICLES@{MAX\_PARTICLES}}
+\index{MAX\_PARTICLES@{MAX\_PARTICLES}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{MAX\_PARTICLES}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+PARTICLES~1000}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{lesson19_8cc_a5724d64b5c3a8c56e926b1ea1d18551c}} 
+\index{lesson19.cc@{lesson19.cc}!check\_keys@{check\_keys}}
+\index{check\_keys@{check\_keys}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{check\_keys()}
+{\footnotesize\ttfamily void check\+\_\+keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{lesson19_8cc_a5724d64b5c3a8c56e926b1ea1d18551c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8cc_a52061247bdaeb770e3a1d59eefaad972}} 
+\index{lesson19.cc@{lesson19.cc}!DrawGLScene@{DrawGLScene}}
+\index{DrawGLScene@{DrawGLScene}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{DrawGLScene()}
+{\footnotesize\ttfamily int Draw\+GLScene (\begin{DoxyParamCaption}\item[{GLvoid}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{lesson19_8cc_a52061247bdaeb770e3a1d59eefaad972_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8cc_a33fc23298a970af0c2294a319b994271}} 
+\index{lesson19.cc@{lesson19.cc}!HandleSDL@{HandleSDL}}
+\index{HandleSDL@{HandleSDL}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{HandleSDL()}
+{\footnotesize\ttfamily int Handle\+SDL (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{lesson19_8cc_a33fc23298a970af0c2294a319b994271_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8cc_aa4c387d3f1ebce6d57684b6a10c9b0ae}} 
+\index{lesson19.cc@{lesson19.cc}!InitGL@{InitGL}}
+\index{InitGL@{InitGL}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{InitGL()}
+{\footnotesize\ttfamily int Init\+GL (\begin{DoxyParamCaption}\item[{GLvoid}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{lesson19_8cc_aa4c387d3f1ebce6d57684b6a10c9b0ae_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{lesson19_8cc_aa4c387d3f1ebce6d57684b6a10c9b0ae_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8cc_a8dd15539ba90ae3670aa0a9f889d2236}} 
+\index{lesson19.cc@{lesson19.cc}!LoadGLTextures@{LoadGLTextures}}
+\index{LoadGLTextures@{LoadGLTextures}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{LoadGLTextures()}
+{\footnotesize\ttfamily int Load\+GLTextures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{lesson19_8cc_a8dd15539ba90ae3670aa0a9f889d2236_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8cc_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{lesson19.cc@{lesson19.cc}!main@{main}}
+\index{main@{main}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lesson19_8cc_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{lesson19_8cc_a87bb84d489df61ed7b0c002584fd984f}} 
+\index{lesson19.cc@{lesson19.cc}!ReSizeGLScene@{ReSizeGLScene}}
+\index{ReSizeGLScene@{ReSizeGLScene}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{ReSizeGLScene()}
+{\footnotesize\ttfamily GLvoid Re\+Size\+GLScene (\begin{DoxyParamCaption}\item[{GLsizei}]{width,  }\item[{GLsizei}]{height }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{lesson19_8cc_a87bb84d489df61ed7b0c002584fd984f_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\label{lesson19_8cc_a03c996f9fcf0e10baeb3e700be0c409a}} 
+\index{lesson19.cc@{lesson19.cc}!active@{active}}
+\index{active@{active}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{active}
+{\footnotesize\ttfamily bool active =true}
+
+\mbox{\label{lesson19_8cc_a469edc375aaa7c6a095681085cdf49e9}} 
+\index{lesson19.cc@{lesson19.cc}!col@{col}}
+\index{col@{col}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{col}
+{\footnotesize\ttfamily GLuint col}
+
+\mbox{\label{lesson19_8cc_a2f03d04e41f030b04ac000d7895c2b5d}} 
+\index{lesson19.cc@{lesson19.cc}!delay@{delay}}
+\index{delay@{delay}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{delay}
+{\footnotesize\ttfamily GLuint delay}
+
+\mbox{\label{lesson19_8cc_a5a9147cb82d1cbeefadd62beb9e6910b}} 
+\index{lesson19.cc@{lesson19.cc}!fullscreen@{fullscreen}}
+\index{fullscreen@{fullscreen}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{fullscreen}
+{\footnotesize\ttfamily bool fullscreen =true}
+
+\mbox{\label{lesson19_8cc_a565dd67e065c3457c34cf097c69c2d75}} 
+\index{lesson19.cc@{lesson19.cc}!keys@{keys}}
+\index{keys@{keys}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{keys}
+{\footnotesize\ttfamily bool keys[512]}
+
+\mbox{\label{lesson19_8cc_a8166a6eff3ba7dbe6db9caa81bdd4444}} 
+\index{lesson19.cc@{lesson19.cc}!loop@{loop}}
+\index{loop@{loop}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{loop}
+{\footnotesize\ttfamily GLuint loop}
+
+\mbox{\label{lesson19_8cc_adc93326d41bb9a47e4e1603899b8b809}} 
+\index{lesson19.cc@{lesson19.cc}!particle@{particle}}
+\index{particle@{particle}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{particle}
+{\footnotesize\ttfamily \textbf{ particles} particle[\textbf{ MAX\+\_\+\+PARTICLES}]}
+
+\mbox{\label{lesson19_8cc_adbd21006311db75a9e2bc9bc2065b51c}} 
+\index{lesson19.cc@{lesson19.cc}!rainbow@{rainbow}}
+\index{rainbow@{rainbow}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{rainbow}
+{\footnotesize\ttfamily bool rainbow =true}
+
+\mbox{\label{lesson19_8cc_a4ff11ab1085419e1180614366b635963}} 
+\index{lesson19.cc@{lesson19.cc}!rp@{rp}}
+\index{rp@{rp}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{rp}
+{\footnotesize\ttfamily bool rp}
+
+\mbox{\label{lesson19_8cc_a7da4fb6c8bdd66bc2fe6e22bb4f5de44}} 
+\index{lesson19.cc@{lesson19.cc}!slowdown@{slowdown}}
+\index{slowdown@{slowdown}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{slowdown}
+{\footnotesize\ttfamily float slowdown =2.\+0f}
+
+\mbox{\label{lesson19_8cc_aaf677ed18854e8ae795959076bc5dda0}} 
+\index{lesson19.cc@{lesson19.cc}!sp@{sp}}
+\index{sp@{sp}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{sp}
+{\footnotesize\ttfamily bool sp}
+
+\mbox{\label{lesson19_8cc_a8dbc8c0cec45367c7d19c7dfa3768fae}} 
+\index{lesson19.cc@{lesson19.cc}!texture@{texture}}
+\index{texture@{texture}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{texture}
+{\footnotesize\ttfamily GLuint texture[1]}
+
+\mbox{\label{lesson19_8cc_a7ac436f4ab4a187efa772c347c97085b}} 
+\index{lesson19.cc@{lesson19.cc}!xspeed@{xspeed}}
+\index{xspeed@{xspeed}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{xspeed}
+{\footnotesize\ttfamily float xspeed}
+
+\mbox{\label{lesson19_8cc_aae9a3d5ef891624a6deba53f08a48fa9}} 
+\index{lesson19.cc@{lesson19.cc}!yspeed@{yspeed}}
+\index{yspeed@{yspeed}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{yspeed}
+{\footnotesize\ttfamily float yspeed}
+
+\mbox{\label{lesson19_8cc_a15776f201dc8b554110222e67a51cbae}} 
+\index{lesson19.cc@{lesson19.cc}!zoom@{zoom}}
+\index{zoom@{zoom}!lesson19.cc@{lesson19.cc}}
+\doxysubsubsection{zoom}
+{\footnotesize\ttfamily float zoom =-\/40.\+0f}
+

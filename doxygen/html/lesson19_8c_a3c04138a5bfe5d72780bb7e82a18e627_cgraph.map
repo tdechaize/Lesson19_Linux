@@ -1,0 +1,10 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title="Programme Main obligatoire pour les programmes sous Linux (OpenGL en mode console)." alt="" coords="5,157,56,184"/>
+<area shape="rect" id="node2" href="$lesson19_8c.html#ac13b55ae5d796578ae81f8d4c7d3d96c" title="Fonction createGLWindow : fonction créant une nouvelle fenêtre OpenGL sous X11, avec des instruction ..." alt="" coords="263,221,384,248"/>
+<area shape="rect" id="node3" href="$lesson19_8c.html#ab84c0d0ddf60c836fa79e5ded5c57da8" title="Fonction DrawGLScene : fonction generant l&#39;affichage attendu avec des instructions OpenGL." alt="" coords="107,56,211,83"/>
+<area shape="rect" id="node4" href="$logger_8c.html#abd2d19eeef46a8184a2302d33c6c7397" title=" " alt="" coords="288,56,359,83"/>
+<area shape="rect" id="node5" href="$lesson19_8c.html#a499bb37858fbf522f2e60bf45789bca4" title="Fonction InitKeys : fonction construisant le tableau des &quot;keycodes&quot; utilisés par ce programme." alt="" coords="125,157,194,184"/>
+<area shape="rect" id="node6" href="$lesson19_8c.html#a3e25f2943eab7c75e72f87e42d5edbba" title="Fonction keyAction : fonction déclenchant les actions attendues lors de l&#39;appui sur certaines touches..." alt="" coords="119,259,199,285"/>
+<area shape="rect" id="node7" href="$lesson19_8c.html#a9f43744c80ac76e78bbcd2ba10586a4a" title="Fonction KillGLWindow : fonction détruisant proprement la fenêtre OpenGL." alt="" coords="273,297,374,324"/>
+<area shape="rect" id="node8" href="$lesson19_8c.html#afa77afca37a4fa454dbd026f5423e9c5" title="Fonction ReSizeGLScene : fonction gerant les nouvelles dimensions de la scéne lorsque l&#39;utilisateur a..." alt="" coords="104,5,215,32"/>
+</map>

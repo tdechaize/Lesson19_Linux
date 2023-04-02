@@ -1,0 +1,725 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_lesson19_8c" xml:lang="en-US">
+<title>lesson19.c File Reference</title>
+<indexterm><primary>lesson19.c</primary></indexterm>
+<para>
+
+<para>Ouvre une simple fenêtre X11 on Linux et dessine un système de génération de particules à partir d&apos;un modèle d&apos;étoile issu d&apos;un fichier BITMAP. </para>
+ 
+</para>
+<programlisting>#include &lt;unistd.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;GL/glx.h&gt;
+#include &lt;GL/gl.h&gt;
+#include &lt;GL/glu.h&gt;
+#include &lt;X11/Xlib.h&gt;
+#include &lt;X11/extensions/xf86vmode.h&gt;
+#include &lt;X11/Xatom.h&gt;
+#include &lt;X11/keysym.h&gt;
+#include &quot;logger.h&quot;
+</programlisting>Include dependency graph for lesson19.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_g_l_window">GLWindow</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structtexture_image">textureImage</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structparticles">particles</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_lesson19_8c_1a78c99ffd76a7bb3c8c74db76207e9ab4">_XOPEN_SOURCE</link>   600</para>
+</listitem>
+            <listitem><para>#define <link linkend="_lesson19_8c_1a43b318e80d2457f5ce3e00a6cf1543c8">MAX_PARTICLES</link>   1000      /* number of <link linkend="_structparticles">particles</link> to create */</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_lesson19_8c_1a7b663452b29fa6d5c1004c71f0bef449">go_fullscreen</link> (Display *dsp, Window <link linkend="_lesson19_8c_1af5e9cbaf11bc8c0c330917f546d0045f">win</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_lesson19_8c_1a890ee4e485ae9ab6768f6bac7b9f679e">return_fullscreen</link> (Display *dsp, Window <link linkend="_lesson19_8c_1af5e9cbaf11bc8c0c330917f546d0045f">win</link>)</para>
+</listitem>
+            <listitem><para>int <link linkend="_lesson19_8c_1a1cb9dc6d04cc9d941fc01c25f273a563">ImageLoad</link> (char *filename, <link linkend="_structtexture_image">textureImage</link> *<link linkend="_lesson19_8c_1a8dbc8c0cec45367c7d19c7dfa3768fae">texture</link>)</para>
+
+<para>Fonction ImageLoad : fonction chargeant une image stockée dans un fichier BMP. </para>
+</listitem>
+            <listitem><para>Bool <link linkend="_lesson19_8c_1a578c61649e0358ee7a128f5c2fbe6339">loadGLTextures</link> ()</para>
+
+<para>Fonction LoadGLTextures : fonction chargeant la texture à appliquer à un objet avec des instructions OpenGL. </para>
+</listitem>
+            <listitem><para>void <link linkend="_lesson19_8c_1afa77afca37a4fa454dbd026f5423e9c5">resizeGLScene</link> (unsigned int width, unsigned int height)</para>
+
+<para>Fonction ReSizeGLScene : fonction gerant les nouvelles dimensions de la scéne lorsque l&apos;utilisateur agit sur un redimensionnement de la fenêtre. </para>
+</listitem>
+            <listitem><para>int <link linkend="_lesson19_8c_1a57804629b2499b5eab933a78a57869ca">initGL</link> (GLvoid)</para>
+
+<para>Fonction InitGL : fonction gerant les caractéristiques de base de la scéne lorsque avec des instructions OpenGL (arrière plan, profondeur, type de profondeur, ...) </para>
+</listitem>
+            <listitem><para>int <link linkend="_lesson19_8c_1ab84c0d0ddf60c836fa79e5ded5c57da8">drawGLScene</link> (GLvoid)</para>
+
+<para>Fonction DrawGLScene : fonction generant l&apos;affichage attendu avec des instructions OpenGL. </para>
+</listitem>
+            <listitem><para>GLvoid <link linkend="_lesson19_8c_1a9f43744c80ac76e78bbcd2ba10586a4a">killGLWindow</link> (GLvoid)</para>
+
+<para>Fonction KillGLWindow : fonction détruisant proprement la fenêtre OpenGL. </para>
+</listitem>
+            <listitem><para>Bool <link linkend="_lesson19_8c_1ac13b55ae5d796578ae81f8d4c7d3d96c">createGLWindow</link> (char *title, int width, int height, int bits, Bool fullscreenflag)</para>
+
+<para>Fonction createGLWindow : fonction créant une nouvelle fenêtre OpenGL sous X11, avec des instruction GLX. </para>
+</listitem>
+            <listitem><para>void <link linkend="_lesson19_8c_1a499bb37858fbf522f2e60bf45789bca4">initKeys</link> ()</para>
+
+<para>Fonction InitKeys : fonction construisant le tableau des &quot;keycodes&quot; utilisés par ce programme. </para>
+</listitem>
+            <listitem><para>void <link linkend="_lesson19_8c_1a3e25f2943eab7c75e72f87e42d5edbba">keyAction</link> ()</para>
+
+<para>Fonction keyAction : fonction déclenchant les actions attendues lors de l&apos;appui sur certaines touches du clavier. </para>
+</listitem>
+            <listitem><para>int <link linkend="_lesson19_8c_1a3c04138a5bfe5d72780bb7e82a18e627">main</link> (int argc, char **argv)</para>
+
+<para>Programme Main obligatoire pour les programmes sous Linux (OpenGL en mode console). </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>char * <link linkend="_lesson19_8c_1ae9fb3d4767f6255c70dcd5123bbf2f54">level_debug</link></para>
+</listitem>
+            <listitem><para>Atom <link linkend="_lesson19_8c_1af97736f62ec5200b7103729676d95123">wmDeleteWindow</link></para>
+</listitem>
+            <listitem><para>Display * <link linkend="_lesson19_8c_1acf76dbe22a22b26de13c8091b9c391aa">dpDisplay</link></para>
+</listitem>
+            <listitem><para>Window <link linkend="_lesson19_8c_1af5e9cbaf11bc8c0c330917f546d0045f">win</link></para>
+</listitem>
+            <listitem><para>XWindowAttributes <link linkend="_lesson19_8c_1acd2d0100ab2abfb408f39b158feafe44">window_attr</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_lesson19_8c_1af7a035f1a720fb7a4a279410f376800b">nFullScreen</link> =0</para>
+</listitem>
+            <listitem><para><link linkend="_struct_g_l_window">GLWindow</link> <link linkend="_lesson19_8c_1ade900ced69fc46dc5f724c63013548c5">GLWin</link></para>
+</listitem>
+            <listitem><para>Bool <link linkend="_lesson19_8c_1a07e347514629b6adb74bcb969e80a33c">done</link></para>
+</listitem>
+            <listitem><para>Bool <link linkend="_lesson19_8c_1a26c3e2b2066db6e72d86722ac0186ec4">keys</link> [256]</para>
+</listitem>
+            <listitem><para>int <link linkend="_lesson19_8c_1a75362430f4deb6fab710f7771b236afb">keyCodes</link> [17]</para>
+</listitem>
+            <listitem><para>Bool <link linkend="_lesson19_8c_1a41a85f9338b6b98dec4194be47ea66b2">rainbow</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_lesson19_8c_1a7da4fb6c8bdd66bc2fe6e22bb4f5de44">slowdown</link> = 2.0f</para>
+</listitem>
+            <listitem><para>float <link linkend="_lesson19_8c_1a451d88560b61eedd5b1e8d3f001173f0">xSpeed</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_lesson19_8c_1add0f459c61dc28778cbe25c8b3795f50">ySpeed</link></para>
+</listitem>
+            <listitem><para>float <link linkend="_lesson19_8c_1a15776f201dc8b554110222e67a51cbae">zoom</link> = -40.0f</para>
+</listitem>
+            <listitem><para>GLuint <link linkend="_lesson19_8c_1a8166a6eff3ba7dbe6db9caa81bdd4444">loop</link></para>
+</listitem>
+            <listitem><para>GLuint <link linkend="_lesson19_8c_1a6d572d653bb9805417195280642d1fce">color</link></para>
+</listitem>
+            <listitem><para>GLuint <link linkend="_lesson19_8c_1a2f03d04e41f030b04ac000d7895c2b5d">delay</link></para>
+</listitem>
+            <listitem><para>GLuint <link linkend="_lesson19_8c_1a8dbc8c0cec45367c7d19c7dfa3768fae">texture</link> [1]</para>
+</listitem>
+            <listitem><para><link linkend="_structparticles">particles</link> <link linkend="_lesson19_8c_1adc93326d41bb9a47e4e1603899b8b809">particle</link> [<link linkend="_lesson19_8c_1a43b318e80d2457f5ce3e00a6cf1543c8">MAX_PARTICLES</link>]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Ouvre une simple fenêtre X11 on Linux et dessine un système de génération de particules à partir d&apos;un modèle d&apos;étoile issu d&apos;un fichier BITMAP. </para>
+
+<para>Comments manageable by Doxygen</para>
+
+<para>Modified smoothly by Thierry DECHAIZE</para>
+
+<para>Paradigm : obtain one source (only one !) compatible for multiple free C Compilers and provide for all users an development environment on Linux (64 bits compatible), the great Code::Blocks manager (version 20.03), and don&apos;t use glaux.lib or glaux.dll.</para>
+
+<para>a) gcc 11.3.0 (32 and 64 bits) version officielle : commande pour l&apos;installation sur Linux Mint -&gt; sudo apt-get install freeglut3 libglew-dev gcc g++ mesa-common-dev build-essential libglew2.2 libglm-dev binutils libc6 libc6-dev gcc-multilib g++-multilib; option -m32 to 32 bits ; no option to 64 bits b) CLANG version 14.0.6 (32 et 64 bits), adossé aux environnements gcc : commande pour l&apos;installation sur Linux Mint -&gt; sudo apt-get install llvm clang ; options pour la compilation et l&apos;édition de liens -&gt; &#8211;target=i686-pc-linux-gnu (32 bits) &#8211;target=x86_64-pc-linux-gnu (64 bits)</para>
+
+<para>Date : 2023/04/02</para>
+
+<para><formalpara><title>Author</title>
+
+<para>Jeff Molofee ( NeHe ) originely, ported to Linux/GLX by Mihael Vrbanec, and after modified smotthly by Thierry Dechaize on Linux Mint </para>
+</formalpara>
+<formalpara><title>Version</title>
+
+<para>2.0.1.0 </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>2 avril 2023</para>
+</formalpara>
+Ce programme gére plusieurs événements : le clic sur le bouton &quot;Fermé&quot; de la fenêtre, la sortie du programme par la touche ESCAPE ou par les touches &quot;q&quot; ou &quot;Q&quot; [Quit]</para>
+
+<para>les touches &quot;b&quot; ou &quot;B&quot; qui active ou non le &quot;blending&quot;, les touches &quot;i&quot; ou &quot;I&quot; qui active ou non le &quot;Filter&quot;,</para>
+
+<para>les touches &quot;l&quot; ou &quot;L&quot; qui active ou non le &quot;ligthing&quot;, les touches &quot;f&quot; ou &quot;F&quot; qui active ou non le &quot;Full Screen&quot;.</para>
+
+<para>les touches spéciales UP, DOWN, LEFT, RIGTH qui agissent sur les rotations respectivement selon l&apos;orientation choisie</para>
+
+<para>les touches PG-UP / PG-DOWN qui agissent sur la profondeur choisie et enfin la touche &quot;Espace&quot; qui permet de choisir la forme à afficher.</para>
+
+<para>Point d&apos;attention : il faut lancer l&apos;exécutable à partir des sous répertoires bin...../Release ou bin...../Debug car le chargement des données est indiqué sous une forme relative : ../../Data/... <literallayout><computeroutput>  FIXME :  2023/01/28 -&gt; Le passage en Fullscreen sur une configuration à deux écrans physiques donne un résultat inattendu : deux fenêtres d&apos;affichage GL Windows se &quot;dupliquent&quot; avec le même contenu,
+                         et plus grave, la résolution de la deuxième fenêtre (sur le deuxième écran) est très faible, ce qui provoque un recouvrement de la deuxième fenêtre sur les deux écrans physiques !!!
+                         Et encore plus gênant, le &quot;grab&quot; s&apos;applique sur cette deuxième fenêtre, donc les actions de la souris comme du clavier restent restreints à cette fenêtre et ne permettent
+                         plus l&apos;accès par exemple aux icônes et aux menus importants sous Linux Mint. Seul un appui sur le bouton d&apos;extinction de mon PC portable permet d&apos;arrêter le système proprement.
+                         Juste pour comprendre la configuration de mon PC portable sous Linux Mint 22.1, j&apos;ai un écran principal (celui du portable) à gauche (écran primaire) et j&apos;ai un deuxième écran
+                         secondaire à droite (HDMI). Et sous Linux Mint, le paramètrage de l&apos;affichage étendu ne permet pas la duplication de la barre de &quot;tâches&quot; sur les deux écrans comme avec Windows 11.
+</computeroutput></literallayout> </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_lesson19_8c_1a78c99ffd76a7bb3c8c74db76207e9ab4"/>    <section>
+    <title>_XOPEN_SOURCE</title>
+<indexterm><primary>_XOPEN_SOURCE</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>_XOPEN_SOURCE</secondary></indexterm>
+<para><computeroutput>#define _XOPEN_SOURCE   600</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1a43b318e80d2457f5ce3e00a6cf1543c8"/>    <section>
+    <title>MAX_PARTICLES</title>
+<indexterm><primary>MAX_PARTICLES</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>MAX_PARTICLES</secondary></indexterm>
+<para><computeroutput>#define MAX_PARTICLES   1000      /* number of <link linkend="_structparticles">particles</link> to create */</computeroutput></para></section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_lesson19_8c_1ac13b55ae5d796578ae81f8d4c7d3d96c"/>    <section>
+    <title>createGLWindow()</title>
+<indexterm><primary>createGLWindow</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>createGLWindow</secondary></indexterm>
+<para><computeroutput>Bool createGLWindow (char * title, int width, int height, int bits, Bool fullscreenflag)</computeroutput></para><para>
+
+<para>Fonction createGLWindow : fonction créant une nouvelle fenêtre OpenGL sous X11, avec des instruction GLX. </para>
+</para>
+
+<para>This function create the GL Window with instructions GLX</para>
+
+<para>En entrée cinq paramètres pour la création de la fénbêtre : son titre, sa largeur, sa hauteur, le nombre de bits pour la gestion de la couleur, et un flag Fullscreen ou non. 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>title</entry>
+                                <entry>
+<para>le titre ou le nom de la fenêtre </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>width</entry>
+                                <entry>
+<para>la largeur de la fenêtre </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>height</entry>
+                                <entry>
+<para>la hauteur de la fenêtre </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>bits</entry>
+                                <entry>
+<para>le nombre de bits pour la gestion de la couleur (1, 2 3 ou 4 bits) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>fullscreenflag</entry>
+                                <entry>
+<para>Fullscreen ou non </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Bool un boolean correspondant au statut de d&apos;appel de cette fonction. </para>
+</formalpara>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_ac13b55ae5d796578ae81f8d4c7d3d96c_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8c_1ab84c0d0ddf60c836fa79e5ded5c57da8"/>    <section>
+    <title>drawGLScene()</title>
+<indexterm><primary>drawGLScene</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>drawGLScene</secondary></indexterm>
+<para><computeroutput>int drawGLScene (GLvoid )</computeroutput></para><para>
+
+<para>Fonction DrawGLScene : fonction generant l&apos;affichage attendu avec des instructions OpenGL. </para>
+</para>
+
+<para>This function generate the scene with instructions OpenGL</para>
+
+<para>Aucun paramètre dans ce cas de figure car tout est géré directement à l&apos;intérieur de cette fonction d&apos;affichage. <formalpara><title>Returns</title>
+
+<para>int un entier &quot;booléen&quot; False/True. </para>
+</formalpara>
+</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_ab84c0d0ddf60c836fa79e5ded5c57da8_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_ab84c0d0ddf60c836fa79e5ded5c57da8_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8c_1a7b663452b29fa6d5c1004c71f0bef449"/>    <section>
+    <title>go_fullscreen()</title>
+<indexterm><primary>go_fullscreen</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>go_fullscreen</secondary></indexterm>
+<para><computeroutput>void go_fullscreen (Display * dsp, Window win)</computeroutput></para>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a7b663452b29fa6d5c1004c71f0bef449_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8c_1a1cb9dc6d04cc9d941fc01c25f273a563"/>    <section>
+    <title>ImageLoad()</title>
+<indexterm><primary>ImageLoad</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>ImageLoad</secondary></indexterm>
+<para><computeroutput>int ImageLoad (char * filename, <link linkend="_structtexture_image">textureImage</link> * texture)</computeroutput></para><para>
+
+<para>Fonction ImageLoad : fonction chargeant une image stockée dans un fichier BMP. </para>
+</para>
+
+<para>This function load image stored in file BMP (quick and dirty bitmap loader !! bug on SOLARIS/SPARC, two functions added below correct this code)</para>
+
+<para>En entrée, le nom du fichier stockant l&apos;image, en retour l&apos;image chargée en mémoire. 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>*filename</entry>
+                                <entry>
+<para>Le nom du fichier stockant l&apos;image </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>*texture</entry>
+                                <entry>
+<para>l&apos;image chargée en mémoire </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>int un entier de type booléen (0 / 1). </para>
+</formalpara>
+</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a1cb9dc6d04cc9d941fc01c25f273a563_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a1cb9dc6d04cc9d941fc01c25f273a563_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8c_1a57804629b2499b5eab933a78a57869ca"/>    <section>
+    <title>initGL()</title>
+<indexterm><primary>initGL</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>initGL</secondary></indexterm>
+<para><computeroutput>int initGL (GLvoid )</computeroutput></para><para>
+
+<para>Fonction InitGL : fonction gerant les caractéristiques de base de la scéne lorsque avec des instructions OpenGL (arrière plan, profondeur, type de profondeur, ...) </para>
+</para>
+
+<para>This function initialize the basics characteristics of the scene with instructions OpenGL (background, depth, type of depth, reset of the projection matrix, ...)</para>
+
+<para>Juste un statut en retour, aucun paramètre en entrée (GLVoid). <formalpara><title>Returns</title>
+
+<para>int statut du retour. </para>
+</formalpara>
+</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a57804629b2499b5eab933a78a57869ca_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8c_1a499bb37858fbf522f2e60bf45789bca4"/>    <section>
+    <title>initKeys()</title>
+<indexterm><primary>initKeys</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>initKeys</secondary></indexterm>
+<para><computeroutput>void initKeys ( )</computeroutput></para><para>
+
+<para>Fonction InitKeys : fonction construisant le tableau des &quot;keycodes&quot; utilisés par ce programme. </para>
+</para>
+
+<para>This function build keycodes map of keys used +by this program</para>
+
+<para>Aucun paramètre dans ce cas de figure car tout est géré directement à l&apos;intérieur de cette fonction. </para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a499bb37858fbf522f2e60bf45789bca4_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8c_1a3e25f2943eab7c75e72f87e42d5edbba"/>    <section>
+    <title>keyAction()</title>
+<indexterm><primary>keyAction</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>keyAction</secondary></indexterm>
+<para><computeroutput>void keyAction ( )</computeroutput></para><para>
+
+<para>Fonction keyAction : fonction déclenchant les actions attendues lors de l&apos;appui sur certaines touches du clavier. </para>
+</para>
+
+<para>This function run actions when key pressed</para>
+
+<para>Aucun paramètre dans ce cas de figure car tout est géré directement à l&apos;intérieur de cette fonction. </para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a3e25f2943eab7c75e72f87e42d5edbba_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a3e25f2943eab7c75e72f87e42d5edbba_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8c_1a9f43744c80ac76e78bbcd2ba10586a4a"/>    <section>
+    <title>killGLWindow()</title>
+<indexterm><primary>killGLWindow</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>killGLWindow</secondary></indexterm>
+<para><computeroutput>GLvoid killGLWindow (GLvoid )</computeroutput></para><para>
+
+<para>Fonction KillGLWindow : fonction détruisant proprement la fenêtre OpenGL. </para>
+</para>
+
+<para>This function kill the GL window properly</para>
+
+<para>Aucun paramètre dans ce cas de figure car tout est géré directement à l&apos;intérieur de cette fonction. <formalpara><title>Returns</title>
+
+<para>GLvoid aucun retour. </para>
+</formalpara>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a9f43744c80ac76e78bbcd2ba10586a4a_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8c_1a578c61649e0358ee7a128f5c2fbe6339"/>    <section>
+    <title>loadGLTextures()</title>
+<indexterm><primary>loadGLTextures</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>loadGLTextures</secondary></indexterm>
+<para><computeroutput>Bool loadGLTextures ( )</computeroutput></para><para>
+
+<para>Fonction LoadGLTextures : fonction chargeant la texture à appliquer à un objet avec des instructions OpenGL. </para>
+</para>
+
+<para>This function load textures used for object with instructions OpenGL</para>
+
+<para>Aucun paramètre en entrée, et justeb un statut d&apos;appel en retour (Bool). <formalpara><title>Returns</title>
+
+<para>Bool un booléen donnant le statut OK/NOK du chargement des textures. </para>
+</formalpara>
+</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a578c61649e0358ee7a128f5c2fbe6339_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a578c61649e0358ee7a128f5c2fbe6339_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8c_1a3c04138a5bfe5d72780bb7e82a18e627"/>    <section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>int main (int argc, char ** argv)</computeroutput></para><para>
+
+<para>Programme Main obligatoire pour les programmes sous Linux (OpenGL en mode console). </para>
+</para>
+
+<para>Comments manageable by Doxygen</para>
+
+<para>Programme principal de lancement de l&apos;application qui appelle ensuite toutes les fonctions utiles OpenGL et surtout glut. 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>argc</entry>
+                                <entry>
+<para>le nombre de paramètres de la ligne de commande. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>argv</entry>
+                                <entry>
+<para>un pointeur sur le tableau des différents paramètres de la ligne de commande. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>int un entier permettant de connaître la statut du lancement du programme. </para>
+</formalpara>
+</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a3c04138a5bfe5d72780bb7e82a18e627_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8c_1afa77afca37a4fa454dbd026f5423e9c5"/>    <section>
+    <title>resizeGLScene()</title>
+<indexterm><primary>resizeGLScene</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>resizeGLScene</secondary></indexterm>
+<para><computeroutput>void resizeGLScene (unsigned int width, unsigned int height)</computeroutput></para><para>
+
+<para>Fonction ReSizeGLScene : fonction gerant les nouvelles dimensions de la scéne lorsque l&apos;utilisateur agit sur un redimensionnement de la fenêtre. </para>
+</para>
+
+<para>This function manage the new dimension of the scene when resize of windows with instructions OpenGL</para>
+
+<para>En retour les deux paramètres des nouvelles valeurs de largeur et de hauteur de la fenêtre redimensionnée. 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>width</entry>
+                                <entry>
+<para>la nouvelle largeur de la fenêtre redimensionnée * </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>height</entry>
+                                <entry>
+<para>la nouvelle hauteur de la fenêtre redimensionnée * </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_afa77afca37a4fa454dbd026f5423e9c5_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_afa77afca37a4fa454dbd026f5423e9c5_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_lesson19_8c_1a890ee4e485ae9ab6768f6bac7b9f679e"/>    <section>
+    <title>return_fullscreen()</title>
+<indexterm><primary>return_fullscreen</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>return_fullscreen</secondary></indexterm>
+<para><computeroutput>void return_fullscreen (Display * dsp, Window win)</computeroutput></para>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="lesson19_8c_a890ee4e485ae9ab6768f6bac7b9f679e_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_lesson19_8c_1a6d572d653bb9805417195280642d1fce"/>    <section>
+    <title>color</title>
+<indexterm><primary>color</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>color</secondary></indexterm>
+<para><computeroutput>GLuint color</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1a2f03d04e41f030b04ac000d7895c2b5d"/>    <section>
+    <title>delay</title>
+<indexterm><primary>delay</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>delay</secondary></indexterm>
+<para><computeroutput>GLuint delay</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1a07e347514629b6adb74bcb969e80a33c"/>    <section>
+    <title>done</title>
+<indexterm><primary>done</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>done</secondary></indexterm>
+<para><computeroutput>Bool done</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1acf76dbe22a22b26de13c8091b9c391aa"/>    <section>
+    <title>dpDisplay</title>
+<indexterm><primary>dpDisplay</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>dpDisplay</secondary></indexterm>
+<para><computeroutput>Display* dpDisplay</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1ade900ced69fc46dc5f724c63013548c5"/>    <section>
+    <title>GLWin</title>
+<indexterm><primary>GLWin</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>GLWin</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_g_l_window">GLWindow</link> GLWin</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1a75362430f4deb6fab710f7771b236afb"/>    <section>
+    <title>keyCodes</title>
+<indexterm><primary>keyCodes</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>keyCodes</secondary></indexterm>
+<para><computeroutput>int keyCodes[17]</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1a26c3e2b2066db6e72d86722ac0186ec4"/>    <section>
+    <title>keys</title>
+<indexterm><primary>keys</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>keys</secondary></indexterm>
+<para><computeroutput>Bool keys[256]</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1ae9fb3d4767f6255c70dcd5123bbf2f54"/>    <section>
+    <title>level_debug</title>
+<indexterm><primary>level_debug</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>level_debug</secondary></indexterm>
+<para><computeroutput>char* level_debug</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1a8166a6eff3ba7dbe6db9caa81bdd4444"/>    <section>
+    <title>loop</title>
+<indexterm><primary>loop</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>loop</secondary></indexterm>
+<para><computeroutput>GLuint loop</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1af7a035f1a720fb7a4a279410f376800b"/>    <section>
+    <title>nFullScreen</title>
+<indexterm><primary>nFullScreen</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>nFullScreen</secondary></indexterm>
+<para><computeroutput>int nFullScreen =0</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1adc93326d41bb9a47e4e1603899b8b809"/>    <section>
+    <title>particle</title>
+<indexterm><primary>particle</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>particle</secondary></indexterm>
+<para><computeroutput><link linkend="_structparticles">particles</link> particle[<link linkend="_lesson19_8c_1a43b318e80d2457f5ce3e00a6cf1543c8">MAX_PARTICLES</link>]</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1a41a85f9338b6b98dec4194be47ea66b2"/>    <section>
+    <title>rainbow</title>
+<indexterm><primary>rainbow</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>rainbow</secondary></indexterm>
+<para><computeroutput>Bool rainbow</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1a7da4fb6c8bdd66bc2fe6e22bb4f5de44"/>    <section>
+    <title>slowdown</title>
+<indexterm><primary>slowdown</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>slowdown</secondary></indexterm>
+<para><computeroutput>float slowdown = 2.0f</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1a8dbc8c0cec45367c7d19c7dfa3768fae"/>    <section>
+    <title>texture</title>
+<indexterm><primary>texture</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>texture</secondary></indexterm>
+<para><computeroutput>GLuint texture[1]</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1af5e9cbaf11bc8c0c330917f546d0045f"/>    <section>
+    <title>win</title>
+<indexterm><primary>win</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>win</secondary></indexterm>
+<para><computeroutput>Window win</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1acd2d0100ab2abfb408f39b158feafe44"/>    <section>
+    <title>window_attr</title>
+<indexterm><primary>window_attr</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>window_attr</secondary></indexterm>
+<para><computeroutput>XWindowAttributes window_attr</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1af97736f62ec5200b7103729676d95123"/>    <section>
+    <title>wmDeleteWindow</title>
+<indexterm><primary>wmDeleteWindow</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>wmDeleteWindow</secondary></indexterm>
+<para><computeroutput>Atom wmDeleteWindow</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1a451d88560b61eedd5b1e8d3f001173f0"/>    <section>
+    <title>xSpeed</title>
+<indexterm><primary>xSpeed</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>xSpeed</secondary></indexterm>
+<para><computeroutput>float xSpeed</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1add0f459c61dc28778cbe25c8b3795f50"/>    <section>
+    <title>ySpeed</title>
+<indexterm><primary>ySpeed</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>ySpeed</secondary></indexterm>
+<para><computeroutput>float ySpeed</computeroutput></para>    </section><anchor xml:id="_lesson19_8c_1a15776f201dc8b554110222e67a51cbae"/>    <section>
+    <title>zoom</title>
+<indexterm><primary>zoom</primary><secondary>lesson19.c</secondary></indexterm>
+<indexterm><primary>lesson19.c</primary><secondary>zoom</secondary></indexterm>
+<para><computeroutput>float zoom = -40.0f</computeroutput></para></section>
+</section>
+</section>

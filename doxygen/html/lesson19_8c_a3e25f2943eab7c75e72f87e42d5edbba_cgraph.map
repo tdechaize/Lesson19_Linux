@@ -1,0 +1,5 @@
+<map id="keyAction" name="keyAction">
+<area shape="rect" id="node1" title="Fonction keyAction : fonction déclenchant les actions attendues lors de l&#39;appui sur certaines touches..." alt="" coords="5,31,85,57"/>
+<area shape="rect" id="node2" href="$lesson19_8c.html#ac13b55ae5d796578ae81f8d4c7d3d96c" title="Fonction createGLWindow : fonction créant une nouvelle fenêtre OpenGL sous X11, avec des instruction ..." alt="" coords="133,5,255,32"/>
+<area shape="rect" id="node3" href="$lesson19_8c.html#a9f43744c80ac76e78bbcd2ba10586a4a" title="Fonction KillGLWindow : fonction détruisant proprement la fenêtre OpenGL." alt="" coords="143,56,245,83"/>
+</map>
